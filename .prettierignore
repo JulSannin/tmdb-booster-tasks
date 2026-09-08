@@ -1,0 +1,13 @@
+node_modules
+dist
+build
+*.local
+
+# Файлы настроек не форматируем
+*.config.js
+*.config.ts
+
+# Не наши файлы
+package-lock.json
+1-description.md
+2-grading-system.md
