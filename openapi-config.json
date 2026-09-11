@@ -1,0 +1,238 @@
+{
+  "schemaFile": "./tmdb-api.json",
+  "apiFile": "./src/api/baseApi.ts",
+  "apiImport": "baseApi",
+  "hooks": true,
+  "outputFiles": {
+    "./src/features/authentication/authenticationApi.ts": {
+      "filterEndpoints": [
+        "authenticationValidateKey",
+        "authenticationCreateGuestSession",
+        "authenticationCreateRequestToken",
+        "authenticationCreateSession",
+        "authenticationCreateSessionFromV4Token",
+        "authenticationCreateSessionFromLogin",
+        "authenticationDeleteSession"
+      ]
+    },
+    "./src/features/account/accountApi.ts": {
+      "filterEndpoints": [
+        "accountDetails",
+        "accountAddFavorite",
+        "accountAddToWatchlist",
+        "accountGetFavorites",
+        "accountFavoriteTv",
+        "accountLists",
+        "accountRatedMovies",
+        "accountRatedTv",
+        "accountRatedTvEpisodes",
+        "accountWatchlistMovies",
+        "accountWatchlistTv"
+      ]
+    },
+    "./src/features/reference/certificationApi.ts": {
+      "filterEndpoints": ["certificationMovieList", "certificationsTvList"]
+    },
+    "./src/features/reference/changesApi.ts": {
+      "filterEndpoints": [
+        "changesMovieList",
+        "changesPeopleList",
+        "changesTvList"
+      ]
+    },
+    "./src/features/collections/collectionsApi.ts": {
+      "filterEndpoints": [
+        "collectionDetails",
+        "collectionImages",
+        "collectionTranslations"
+      ]
+    },
+    "./src/features/companies/companiesApi.ts": {
+      "filterEndpoints": [
+        "companyDetails",
+        "companyAlternativeNames",
+        "companyImages"
+      ]
+    },
+    "./src/features/reference/configurationApi.ts": {
+      "filterEndpoints": [
+        "configurationDetails",
+        "configurationCountries",
+        "configurationJobs",
+        "configurationLanguages",
+        "configurationPrimaryTranslations",
+        "configurationTimezones"
+      ]
+    },
+    "./src/features/credits/creditsApi.ts": {
+      "filterEndpoints": ["creditDetails"]
+    },
+    "./src/features/discover/discoverApi.ts": {
+      "filterEndpoints": ["discoverMovie", "discoverTv"]
+    },
+    "./src/features/find/findApi.ts": {
+      "filterEndpoints": ["findById"]
+    },
+    "./src/features/genres/genresApi.ts": {
+      "filterEndpoints": ["genreMovieList", "genreTvList"]
+    },
+    "./src/features/guestSession/guestSessionApi.ts": {
+      "filterEndpoints": [
+        "guestSessionRatedMovies",
+        "guestSessionRatedTv",
+        "guestSessionRatedTvEpisodes"
+      ]
+    },
+    "./src/features/keywords/keywordsApi.ts": {
+      "filterEndpoints": ["keywordDetails", "keywordMovies"]
+    },
+    "./src/features/lists/listsApi.ts": {
+      "filterEndpoints": [
+        "listAddMovie",
+        "listCheckItemStatus",
+        "listClear",
+        "listCreate",
+        "listDelete",
+        "listDetails",
+        "listRemoveMovie"
+      ]
+    },
+    "./src/features/movies/moviesApi.ts": {
+      "filterEndpoints": [
+        "movieNowPlayingList",
+        "moviePopularList",
+        "movieTopRatedList",
+        "movieUpcomingList",
+        "movieDetails",
+        "movieAccountStates",
+        "movieAlternativeTitles",
+        "movieChanges",
+        "movieCredits",
+        "movieExternalIds",
+        "movieImages",
+        "movieKeywords",
+        "movieLatestId",
+        "movieLists",
+        "movieRecommendations",
+        "movieReleaseDates",
+        "movieReviews",
+        "movieSimilar",
+        "movieTranslations",
+        "movieVideos",
+        "movieWatchProviders",
+        "movieAddRating",
+        "movieDeleteRating"
+      ]
+    },
+    "./src/features/networks/networksApi.ts": {
+      "filterEndpoints": [
+        "networkDetails",
+        "detailsCopy",
+        "alternativeNamesCopy"
+      ]
+    },
+    "./src/features/people/peopleApi.ts": {
+      "filterEndpoints": [
+        "personPopularList",
+        "personDetails",
+        "personChanges",
+        "personCombinedCredits",
+        "personExternalIds",
+        "personImages",
+        "personLatestId",
+        "personMovieCredits",
+        "personTvCredits",
+        "personTaggedImages",
+        "translations"
+      ]
+    },
+    "./src/features/reviews/reviewsApi.ts": {
+      "filterEndpoints": ["reviewDetails"]
+    },
+    "./src/features/search/searchApi.ts": {
+      "filterEndpoints": [
+        "searchCollection",
+        "searchCompany",
+        "searchKeyword",
+        "searchMovie",
+        "searchMulti",
+        "searchPerson",
+        "searchTv"
+      ]
+    },
+    "./src/features/trending/trendingApi.ts": {
+      "filterEndpoints": [
+        "trendingAll",
+        "trendingMovies",
+        "trendingPeople",
+        "trendingTv"
+      ]
+    },
+    "./src/features/tv/tvApi.ts": {
+      "filterEndpoints": [
+        "tvSeriesAiringTodayList",
+        "tvSeriesOnTheAirList",
+        "tvSeriesPopularList",
+        "tvSeriesTopRatedList",
+        "tvSeriesDetails",
+        "tvSeriesAccountStates",
+        "tvSeriesAggregateCredits",
+        "tvSeriesAlternativeTitles",
+        "tvSeriesChanges",
+        "tvSeriesContentRatings",
+        "tvSeriesCredits",
+        "tvSeriesEpisodeGroups",
+        "tvSeriesExternalIds",
+        "tvSeriesImages",
+        "tvSeriesKeywords",
+        "tvSeriesLatestId",
+        "listsCopy",
+        "tvSeriesRecommendations",
+        "tvSeriesReviews",
+        "tvSeriesScreenedTheatrically",
+        "tvSeriesSimilar",
+        "tvSeriesTranslations",
+        "tvSeriesVideos",
+        "tvSeriesWatchProviders",
+        "tvSeriesAddRating",
+        "tvSeriesDeleteRating"
+      ]
+    },
+    "./src/features/tv/tvSeasonsApi.ts": {
+      "filterEndpoints": [
+        "tvSeasonDetails",
+        "tvSeasonAccountStates",
+        "tvSeasonAggregateCredits",
+        "tvSeasonChangesById",
+        "tvSeasonCredits",
+        "tvSeasonExternalIds",
+        "tvSeasonImages",
+        "tvSeasonTranslations",
+        "tvSeasonVideos",
+        "tvSeasonWatchProviders"
+      ]
+    },
+    "./src/features/tv/tvEpisodesApi.ts": {
+      "filterEndpoints": [
+        "tvEpisodeDetails",
+        "tvEpisodeAccountStates",
+        "tvEpisodeChangesById",
+        "tvEpisodeCredits",
+        "tvEpisodeExternalIds",
+        "tvEpisodeImages",
+        "tvEpisodeTranslations",
+        "tvEpisodeVideos",
+        "tvEpisodeAddRating",
+        "tvEpisodeDeleteRating",
+        "tvEpisodeGroupDetails"
+      ]
+    },
+    "./src/features/watchProviders/watchProvidersApi.ts": {
+      "filterEndpoints": [
+        "watchProvidersAvailableRegions",
+        "watchProvidersMovieList",
+        "watchProviderTvList"
+      ]
+    }
+  }
+}
