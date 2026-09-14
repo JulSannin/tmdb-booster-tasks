@@ -1,24 +1,65 @@
 /* Сама шапка: логотип и меню в один ряд */
 .header {
     display: flex;
-    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+    background: var(--primary-color);
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 1280px;
+    height: 100%;
+    padding: 0 24px;
+}
+
+/* Логотип-ссылка на главную */
+.headerLogo {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Обёртка навигации — растягиваем по высоте, чтобы пункты меню были кликабельны на всю высоту шапки */
+.headerNav {
+    height: 100%;
 }
 
 /* Список пунктов меню тоже в ряд, а не столбиком */
-.header_menu {
+.headerMenu {
     display: flex;
-    gap: 20px;
-    width: 1280px;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-/* relative — точка отсчёта для .header_dropdown (у него position: absolute) */
-.header_group {
+/* relative — точка отсчёта для .headerDropdown (у него position: absolute) */
+.headerMenuItem {
     position: relative;
+}
+
+/* Кликабельный заголовок группы: «Фильмы», «ТВ-шоу» и т.д. */
+/* На всю высоту шапки, чтобы было по чему водить мышью и открывать дропдаун */
+.headerLink {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+    color: #fff;
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 /* Сам выпадающий список: спрятан по умолчанию (display: none), */
 /* "выезжает" сразу под пунктом меню (top: 100%, left: 0) */
-.header_dropdown {
+.headerDropdown {
     position: absolute;
     top: 100%;
     left: 0;
@@ -31,21 +72,22 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* Показываем дропдаун, когда наводят мышью на группу (:hover) */
-/* или когда фокус внутри группы, например при табуляции (:focus-within) */
-.header_group:hover .header_dropdown,
-.header_group:focus-within .header_dropdown {
+/* Показываем дропдаун, когда наводят мышью на пункт меню (:hover) */
+/* или когда фокус внутри него, например при табуляции (:focus-within) */
+.headerMenuItem:hover .headerDropdown,
+.headerMenuItem:focus-within .headerDropdown {
     display: block;
 }
 
-.header_dropdown-link {
+/* Ссылка внутри дропдауна */
+.headerDropdownLink {
     display: block;
     padding: 8px 16px;
     text-decoration: none;
     color: inherit;
 }
 
-/* Подсветка активной ссылки внутри дропдауна (react-router добавляет .active) */
-.header_dropdown-link.active {
+/* Подсветка активной ссылки внутри дропдауна (react-router добавляет isActive) */
+.headerDropdownLinkActive {
     font-weight: 600;
 }

@@ -1,12 +1,9 @@
-import type {NavGroup, MenuEntry} from './types';
-
-// Проверяем, есть ли у пункта меню поле items — если да, значит это группа с дропдауном
-export const isGroup = (entry: MenuEntry): entry is NavGroup =>
-    'items' in entry;
+import { type NavGroup } from './types';
 
 // Конфиг всего меню шапки: что показывать и куда вести
-export const menu: MenuEntry[] = [
+export const menu: NavGroup[] = [
     {
+        id: 1,
         label: 'Фильмы',
         items: [
             { to: '/movies/popular', label: 'Популярные' },
@@ -16,16 +13,22 @@ export const menu: MenuEntry[] = [
         ],
     },
     {
+        id: 2,
         label: 'ТВ-шоу',
         items: [
-            { to: '/tvs/popular', label: 'Популярные' },
-            { to: '/tvs/airing-today', label: 'Сейчас в кино' },
-            { to: '/tvs/on-tv', label: 'Скоро' },
-            { to: '/tvs/top-rated', label: 'Топ рейтинга' },
+            { to: '/tv/popular', label: 'Популярные' },
+            { to: '/tv/airing-today', label: 'Сейчас в кино' },
+            { to: '/tv/on-tv', label: 'Скоро' },
+            { to: '/tv/top-rated', label: 'Топ рейтинга' },
         ],
     },
-    { to: '/persons', label: 'Актеры' },
     {
+        id: 3,
+        label: 'Актеры',
+        items: [{ to: '/persons/popular', label: 'Популярные' }],
+    },
+    {
+        id: 4,
         label: 'Премии',
         items: [
             { to: '/awards/popular', label: 'Популярные' },

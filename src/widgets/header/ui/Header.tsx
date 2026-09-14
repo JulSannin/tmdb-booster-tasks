@@ -1,44 +1,32 @@
 import { NavLink } from 'react-router';
-
-import { isGroup, menu } from '../model/menu';
+import { menu } from '../model/menu';
+import Logo from './header-logo.svg';
 
 import s from './Header.module.css';
 
 export function Header() {
     return (
         <header className={s.header}>
-            {/* Логотип-ссылка на главную */}
-            <NavLink to="/" className={s.header_logo}>
-                TMDB
-            </NavLink>
-            <nav className={s.header_nav}>
-                <ul className={s.header_menu}>
-                    {/* Рендерим каждый пункт меню из конфига выше */}
-                    {menu.map((entry) => (
-                        <li
-                            className={s.header_group}
-                            key={isGroup(entry) ? entry.label : entry.to}
-                        >
-                            {/* Для групп без ссылки рисуем обычный заголовок, для обычного пункта — NavLink */}
-                            {isGroup(entry) ? (
-                                <span className={s.header_link}>
-                                    {entry.label}
-                                </span>
-                            ) : (
-                                <NavLink
-                                    to={entry.to}
-                                    className={s.header_link}
+            <div className={s.headerContent}>
+                {/* Логотип-ссылка на главную */}
+                <NavLink to="/" className={s.headerLogo}>
+                    <img src={Logo} width={128} />
+                </NavLink>
+                <nav className={s.headerNav}>
+                    <ul className={s.headerMenu}>
+                        {/* Рендерим каждый пункт меню из model/menu.ts */}
+                        {menu.map((links) => (
+                            <li className={s.headerMenuItem} key={links.id}>
+                                <span
+                                    className={s.headerLink}
                                 >
-                                    {entry.label}
-                                </NavLink>
-                            )}
-                            {/* Если это группа — рисуем под ней выпадающий список подпунктов */}
-                            {isGroup(entry) && (
-                                <ul className={s.header_dropdown}>
-                                    {entry.items.map((item) => (
-                                        <li key={item.to}>
+                                    {links.label}
+                                </span>
+                                <ul className={s.headerDropdown}>
+                                    {links.items.map((link) => (
+                                        <li key={link.to}>
                                             <NavLink
-                                                to={item.to}
+                                                to={link.to}
                                                 end
                                                 // Снимаем фокус после клика, чтобы дропдаун не оставался открытым
                                                 // из-за :focus-within в CSS
@@ -47,24 +35,20 @@ export function Header() {
                                                 }
                                                 className={({ isActive }) =>
                                                     isActive
-                                                        ? s[
-                                                              'header_dropdown-link active'
-                                                          ]
-                                                        : s[
-                                                              'header_dropdown-link'
-                                                          ]
+                                                        ? `${s.headerDropdownLink} ${s.headerDropdownLinkActive}`
+                                                        : s.headerDropdownLink
                                                 }
                                             >
-                                                {item.label}
+                                                {link.label}
                                             </NavLink>
                                         </li>
                                     ))}
                                 </ul>
-                            )}
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </div>
         </header>
     );
 }

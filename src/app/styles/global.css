@@ -28,8 +28,11 @@ button {
 
 /* Дизайн-токены и базовая типографика */
 :root {
-    font-family: system-ui, sans-serif;
-    color-scheme: light dark;
+    --font-body: 'Source Sans 3', system-ui, sans-serif;
+    font-family: var(--font-body);
+    --primary-color: #0d253f;
+    --secondary-color: #01b4e4;
+    --tertiary-color: #90cea1;
 }
 
 body {

@@ -3,6 +3,11 @@ import { Provider } from 'react-redux';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { Header } from '@/widgets/header';
 import { store } from './model/store';
+// Шрифт лежит в node_modules (пакет @fontsource) — файлы .woff2 попадут
+// в сборку и будут грузиться с нашего домена, без обращения к Google Fonts
+import '@fontsource/source-sans-3/400.css';
+import '@fontsource/source-sans-3/600.css';
+import '@fontsource/source-sans-3/700.css';
 import './styles/global.css';
 
 // Layout отвечает за HTML-каркас страницы (<html>, <head>, <body>).

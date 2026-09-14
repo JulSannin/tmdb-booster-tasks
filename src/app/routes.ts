@@ -15,21 +15,22 @@ export default [
     // prefix('movies', [...]) — все пути внутри получают префикс /movies,
     // то есть route('popular', ...) станет доступен по /movies/popular
     ...prefix('movies', [
-        route('popular', 'routes/popular.ts'),
-        route('now-playing', 'routes/now-playing.ts'),
-        route('up-coming', 'routes/up-coming.ts'),
-        route('top-rated', 'routes/top-rated.ts'),
+        route('popular', 'routes/movies-popular.ts'),
+        route('now-playing', 'routes/movies-now-playing.ts'),
+        route('up-coming', 'routes/movies-up-coming.ts'),
+        route('top-rated', 'routes/movies-top-rated.ts'),
     ]),
 
-    ...prefix('tvs', [
+    ...prefix('tv', [
         route('popular', 'routes/tv-popular.ts'),
         route('airing-today', 'routes/tv-airing-today.ts'),
         route('on-tv', 'routes/tv-on-tv.ts'),
         route('top-rated', 'routes/tv-top-rated.ts'),
     ]),
 
-    // route('путь', 'файл') — обычный маршрут без вложенных подпутей
-    route('persons', 'routes/persons.ts'),
+    ...prefix('persons', [
+        route('popular', 'routes/persons-popular.ts'),
+    ]),
 
     ...prefix('awards', [
         route('popular', 'routes/awards-popular.ts'),
