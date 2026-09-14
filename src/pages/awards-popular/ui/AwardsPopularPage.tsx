@@ -1,3 +1,3 @@
 export function AwardsPopularPage() {
-  return <div>AwardsPopularPage</div>;
+    return <div>AwardsPopularPage</div>;
 }

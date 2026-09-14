@@ -1,3 +1,3 @@
 export function TopRatedPage() {
-  return <div>TopRatedPage</div>;
+    return <div>TopRatedPage</div>;
 }

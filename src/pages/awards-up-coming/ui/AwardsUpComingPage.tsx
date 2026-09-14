@@ -1,3 +1,3 @@
 export function AwardsUpComingPage() {
-  return <div>AwardsUpComingPage</div>;
+    return <div>AwardsUpComingPage</div>;
 }

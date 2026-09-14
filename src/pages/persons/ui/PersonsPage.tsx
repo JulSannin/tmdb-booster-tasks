@@ -1,3 +1,3 @@
 export function PersonsPage() {
-  return <div>PersonsPage</div>;
+    return <div>PersonsPage</div>;
 }

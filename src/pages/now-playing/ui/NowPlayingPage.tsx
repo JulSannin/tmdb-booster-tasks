@@ -1,3 +1,3 @@
 export function NowPlayingPage() {
-  return <div>NowPlayingPage</div>;
+    return <div>NowPlayingPage</div>;
 }
