@@ -1,10 +1,10 @@
 {
   "schemaFile": "./tmdb-api.json",
-  "apiFile": "./src/api/baseApi.ts",
+  "apiFile": "./src/shared/api/baseApi.ts",
   "apiImport": "baseApi",
   "hooks": true,
   "outputFiles": {
-    "./src/features/authentication/authenticationApi.ts": {
+    "./src/shared/api/generated/authentication/authenticationApi.ts": {
       "filterEndpoints": [
         "authenticationValidateKey",
         "authenticationCreateGuestSession",
@@ -15,7 +15,7 @@
         "authenticationDeleteSession"
       ]
     },
-    "./src/features/account/accountApi.ts": {
+    "./src/shared/api/generated/account/accountApi.ts": {
       "filterEndpoints": [
         "accountDetails",
         "accountAddFavorite",
@@ -30,31 +30,31 @@
         "accountWatchlistTv"
       ]
     },
-    "./src/features/reference/certificationApi.ts": {
+    "./src/shared/api/generated/reference/certificationApi.ts": {
       "filterEndpoints": ["certificationMovieList", "certificationsTvList"]
     },
-    "./src/features/reference/changesApi.ts": {
+    "./src/shared/api/generated/reference/changesApi.ts": {
       "filterEndpoints": [
         "changesMovieList",
         "changesPeopleList",
         "changesTvList"
       ]
     },
-    "./src/features/collections/collectionsApi.ts": {
+    "./src/shared/api/generated/collections/collectionsApi.ts": {
       "filterEndpoints": [
         "collectionDetails",
         "collectionImages",
         "collectionTranslations"
       ]
     },
-    "./src/features/companies/companiesApi.ts": {
+    "./src/shared/api/generated/companies/companiesApi.ts": {
       "filterEndpoints": [
         "companyDetails",
         "companyAlternativeNames",
         "companyImages"
       ]
     },
-    "./src/features/reference/configurationApi.ts": {
+    "./src/shared/api/generated/reference/configurationApi.ts": {
       "filterEndpoints": [
         "configurationDetails",
         "configurationCountries",
@@ -64,29 +64,29 @@
         "configurationTimezones"
       ]
     },
-    "./src/features/credits/creditsApi.ts": {
+    "./src/shared/api/generated/credits/creditsApi.ts": {
       "filterEndpoints": ["creditDetails"]
     },
-    "./src/features/discover/discoverApi.ts": {
+    "./src/shared/api/generated/discover/discoverApi.ts": {
       "filterEndpoints": ["discoverMovie", "discoverTv"]
     },
-    "./src/features/find/findApi.ts": {
+    "./src/shared/api/generated/find/findApi.ts": {
       "filterEndpoints": ["findById"]
     },
-    "./src/features/genres/genresApi.ts": {
+    "./src/shared/api/generated/genres/genresApi.ts": {
       "filterEndpoints": ["genreMovieList", "genreTvList"]
     },
-    "./src/features/guestSession/guestSessionApi.ts": {
+    "./src/shared/api/generated/guestSession/guestSessionApi.ts": {
       "filterEndpoints": [
         "guestSessionRatedMovies",
         "guestSessionRatedTv",
         "guestSessionRatedTvEpisodes"
       ]
     },
-    "./src/features/keywords/keywordsApi.ts": {
+    "./src/shared/api/generated/keywords/keywordsApi.ts": {
       "filterEndpoints": ["keywordDetails", "keywordMovies"]
     },
-    "./src/features/lists/listsApi.ts": {
+    "./src/shared/api/generated/lists/listsApi.ts": {
       "filterEndpoints": [
         "listAddMovie",
         "listCheckItemStatus",
@@ -97,7 +97,7 @@
         "listRemoveMovie"
       ]
     },
-    "./src/features/movies/moviesApi.ts": {
+    "./src/shared/api/generated/movies/moviesApi.ts": {
       "filterEndpoints": [
         "movieNowPlayingList",
         "moviePopularList",
@@ -124,14 +124,14 @@
         "movieDeleteRating"
       ]
     },
-    "./src/features/networks/networksApi.ts": {
+    "./src/shared/api/generated/networks/networksApi.ts": {
       "filterEndpoints": [
         "networkDetails",
         "detailsCopy",
         "alternativeNamesCopy"
       ]
     },
-    "./src/features/people/peopleApi.ts": {
+    "./src/shared/api/generated/people/peopleApi.ts": {
       "filterEndpoints": [
         "personPopularList",
         "personDetails",
@@ -146,10 +146,10 @@
         "translations"
       ]
     },
-    "./src/features/reviews/reviewsApi.ts": {
+    "./src/shared/api/generated/reviews/reviewsApi.ts": {
       "filterEndpoints": ["reviewDetails"]
     },
-    "./src/features/search/searchApi.ts": {
+    "./src/shared/api/generated/search/searchApi.ts": {
       "filterEndpoints": [
         "searchCollection",
         "searchCompany",
@@ -160,7 +160,7 @@
         "searchTv"
       ]
     },
-    "./src/features/trending/trendingApi.ts": {
+    "./src/shared/api/generated/trending/trendingApi.ts": {
       "filterEndpoints": [
         "trendingAll",
         "trendingMovies",
@@ -168,7 +168,7 @@
         "trendingTv"
       ]
     },
-    "./src/features/tv/tvApi.ts": {
+    "./src/shared/api/generated/tv/tvApi.ts": {
       "filterEndpoints": [
         "tvSeriesAiringTodayList",
         "tvSeriesOnTheAirList",
@@ -198,7 +198,7 @@
         "tvSeriesDeleteRating"
       ]
     },
-    "./src/features/tv/tvSeasonsApi.ts": {
+    "./src/shared/api/generated/tv/tvSeasonsApi.ts": {
       "filterEndpoints": [
         "tvSeasonDetails",
         "tvSeasonAccountStates",
@@ -212,7 +212,7 @@
         "tvSeasonWatchProviders"
       ]
     },
-    "./src/features/tv/tvEpisodesApi.ts": {
+    "./src/shared/api/generated/tv/tvEpisodesApi.ts": {
       "filterEndpoints": [
         "tvEpisodeDetails",
         "tvEpisodeAccountStates",
@@ -227,7 +227,7 @@
         "tvEpisodeGroupDetails"
       ]
     },
-    "./src/features/watchProviders/watchProvidersApi.ts": {
+    "./src/shared/api/generated/watchProviders/watchProvidersApi.ts": {
       "filterEndpoints": [
         "watchProvidersAvailableRegions",
         "watchProvidersMovieList",

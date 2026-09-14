@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { baseApi as api } from '../baseApi';
 const injectedRtkApi = api.injectEndpoints({
   endpoints: (build) => ({
