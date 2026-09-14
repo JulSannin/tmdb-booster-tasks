@@ -84,11 +84,10 @@ shared    переиспользуемое без привязки к теме �
 ```
 src/
 ├── app/
+│   ├── root.tsx           оболочка страницы, провайдер Redux
+│   ├── routes.ts          список маршрутов
+│   ├── routes/            файлы маршрутов: отдают страницы React Router
 │   ├── model/store/       хранилище Redux
-│   ├── routing/
-│   │   ├── root.tsx       оболочка страницы, провайдер Redux
-│   │   ├── routes/        файлы маршрутов: отдают страницы React Router
-│   │   └── routes.ts      список маршрутов
 │   └── styles/
 │       └── global.css     глобальные стили
 ├── pages/                 страницы
