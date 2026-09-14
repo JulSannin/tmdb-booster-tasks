@@ -1,0 +1,51 @@
+/* Сама шапка: логотип и меню в один ряд */
+.header {
+    display: flex;
+    gap: 40px;
+}
+
+/* Список пунктов меню тоже в ряд, а не столбиком */
+.header_menu {
+    display: flex;
+    gap: 20px;
+    width: 1280px;
+}
+
+/* relative — точка отсчёта для .header_dropdown (у него position: absolute) */
+.header_group {
+    position: relative;
+}
+
+/* Сам выпадающий список: спрятан по умолчанию (display: none), */
+/* "выезжает" сразу под пунктом меню (top: 100%, left: 0) */
+.header_dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    min-width: 200px;
+    margin: 0;
+    padding: 8px 0;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Показываем дропдаун, когда наводят мышью на группу (:hover) */
+/* или когда фокус внутри группы, например при табуляции (:focus-within) */
+.header_group:hover .header_dropdown,
+.header_group:focus-within .header_dropdown {
+    display: block;
+}
+
+.header_dropdown-link {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Подсветка активной ссылки внутри дропдауна (react-router добавляет .active) */
+.header_dropdown-link.active {
+    font-weight: 600;
+}
