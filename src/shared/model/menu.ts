@@ -1,6 +1,7 @@
-import { type NavGroup } from '@/shared/model';
+import { type NavGroup } from './nav';
 
-// Конфиг всего меню шапки: что показывать и куда вести
+// Конфиг категорий сайта: используется и в шапке (с выпадающими списками),
+// и в футере (плоскими ссылками на items[0] каждой группы)
 export const menu: NavGroup[] = [
     {
         id: 1,

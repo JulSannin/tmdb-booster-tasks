@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-import { menu } from '../model/menu';
+import { menu } from '@/shared/model';
 import Logo from './header-logo.svg';
 import { ThemeToggle } from '@/shared/theme-toggle';
 import { useBurgerMenu } from '../model/useBurgerMenu';
@@ -24,7 +24,7 @@ export function Header() {
                     </NavLink>
                     <nav className={s.headerNav}>
                         <ul className={s.headerMenu}>
-                            {/* Рендерим каждый пункт меню из model/menu.ts */}
+                            {/* Рендерим каждый пункт меню из shared/model (общий с Footer) */}
                             {menu.map((links) => (
                                 <li className={s.headerMenuItem} key={links.id}>
                                     {/* Не NavLink: у группы своего адреса нет, */}

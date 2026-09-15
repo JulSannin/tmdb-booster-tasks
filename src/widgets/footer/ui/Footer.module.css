@@ -1,0 +1,78 @@
+/* Тот же фирменный тёмно-синий, что и у шапки — визуально "обрамляют" контент */
+.footer {
+    display: flex;
+    justify-content: center;
+    background: var(--primary-color);
+    color: var(--text-color);
+}
+
+.footerContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1280px;
+    padding: 24px;
+    text-align: center;
+}
+
+.footerLogo {
+    display: inline-flex;
+}
+
+/* Ряд колонок, по одной на раздел; текст внутри — влево, читать список удобнее */
+.footerNav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px 48px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: left;
+}
+
+.footerGroup {
+    min-width: 140px;
+}
+
+.footerGroupLabel {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    opacity: 0.7;
+}
+
+.footerGroupList {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footerLink {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.footerLink:hover {
+    text-decoration: underline;
+}
+
+/* Обязательная по условиям TMDB API атрибуция при использовании их данных */
+.footerAttribution {
+    margin: 0;
+    max-width: 640px;
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.footerCopyright {
+    margin: 0;
+    font-size: 13px;
+    opacity: 0.6;
+}

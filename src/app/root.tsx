@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Provider } from 'react-redux';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { Header } from '@/widgets/header';
+import { Footer } from '@/widgets/footer';
 import { store } from './model/store';
 // Шрифт лежит в node_modules (пакет @fontsource) — файлы .woff2 попадут
 // в сборку и будут грузиться с нашего домена, без обращения к Google Fonts
@@ -62,8 +63,13 @@ export default function Root() {
             {/* Header рендерится здесь, а не в Layout, поэтому он часть */}
             {/* React-дерева приложения и не пересоздаётся при смене страниц */}
             <Header />
-            {/* Outlet — место, куда React Router подставляет текущую страницу */}
-            <Outlet />
+            {/* main растягивается на всё свободное место (flex: 1 в global.css), */}
+            {/* поэтому Footer всегда прижат к низу, даже на короткой странице */}
+            <main>
+                {/* Outlet — место, куда React Router подставляет текущую страницу */}
+                <Outlet />
+            </main>
+            <Footer />
         </Provider>
     );
 }
