@@ -15,7 +15,7 @@ import './styles/global.css';
 // между переходами — сам контент страницы приходит через {children}.
 export function Layout({ children }: { children: ReactNode }) {
     return (
-        <html lang="ru">
+        <html lang="ru" suppressHydrationWarning>
             <head>
                 <meta charSet="utf-8" />
                 <meta

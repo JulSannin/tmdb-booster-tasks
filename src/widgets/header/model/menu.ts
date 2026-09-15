@@ -1,4 +1,4 @@
-import { type NavGroup } from './types';
+import { type NavGroup } from '@/shared/model';
 
 // Конфиг всего меню шапки: что показывать и куда вести
 export const menu: NavGroup[] = [

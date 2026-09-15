@@ -22,6 +22,13 @@
     height: 100%;
 }
 
+/* Ниже 1024px вместо десктоп-меню показывается бургер (см. Burger.module.css) */
+@media (max-width: 1023px) {
+    .headerNav {
+        display: none;
+    }
+}
+
 /* Список пунктов меню тоже в ряд, а не столбиком */
 .headerMenu {
     display: flex;
