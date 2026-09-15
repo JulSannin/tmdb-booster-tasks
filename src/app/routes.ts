@@ -28,9 +28,7 @@ export default [
         route('top-rated', 'routes/tv-top-rated.ts'),
     ]),
 
-    ...prefix('persons', [
-        route('popular', 'routes/persons-popular.ts'),
-    ]),
+    ...prefix('persons', [route('popular', 'routes/persons-popular.ts')]),
 
     ...prefix('awards', [
         route('popular', 'routes/awards-popular.ts'),

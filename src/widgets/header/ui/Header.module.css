@@ -9,19 +9,12 @@
 
 .headerContent {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 24px;
     width: 1280px;
     height: 100%;
     padding: 0 24px;
-}
-
-/* Логотип-ссылка на главную */
-.headerLogo {
-    color: #fff;
-    font-weight: 700;
-    text-decoration: none;
-    white-space: nowrap;
 }
 
 /* Обёртка навигации — растягиваем по высоте, чтобы пункты меню были кликабельны на всю высоту шапки */
@@ -50,7 +43,7 @@
     align-items: center;
     height: 100%;
     padding: 0 16px;
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
     white-space: nowrap;
     font-size: 16px;
@@ -58,17 +51,20 @@
 }
 
 /* Сам выпадающий список: спрятан по умолчанию (display: none), */
-/* "выезжает" сразу под пунктом меню (top: 100%, left: 0) */
+/* "выезжает" сразу под пунктом меню (top: 100%, left: 0). */
+/* Фон/текст на --surface-* (не --primary-color!), чтобы дропдаун */
+/* переключался со светлой темы на тёмную, а не оставался всегда белым */
 .headerDropdown {
     position: absolute;
     top: 100%;
     left: 0;
     display: none;
-    min-width: 200px;
+    min-width: 140px;
     margin: 0;
     padding: 8px 0;
     list-style: none;
-    background: #fff;
+    background: var(--surface-bg);
+    color: var(--surface-text);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
 }
 

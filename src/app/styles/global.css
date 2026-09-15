@@ -30,12 +30,33 @@ button {
 :root {
     --font-body: 'Source Sans 3', system-ui, sans-serif;
     font-family: var(--font-body);
+
+    /* Фирменные цвета TMDB — фиксированные, не зависят от темы */
     --primary-color: #0d253f;
     --secondary-color: #01b4e4;
     --tertiary-color: #90cea1;
+    --text-color: #ffffff; /* текст поверх primary-color (шапка), он всегда тёмный, поэтому текст всегда белый */
+
+    /* Поверхности — вот это уже реально переключается между темами */
+    --surface-bg: #ffffff;
+    --surface-text: #0d253f;
+}
+
+:root[data-theme='dark'] {
+    --surface-bg: #0a1826;
+    --surface-text: #f5f7fa;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) {
+        --surface-bg: #0a1826;
+        --surface-text: #f5f7fa;
+    }
 }
 
 body {
     margin: 0;
     min-height: 100vh;
+    background: var(--surface-bg);
+    color: var(--surface-text);
 }

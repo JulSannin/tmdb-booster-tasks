@@ -28,6 +28,19 @@ export function Layout({ children }: { children: ReactNode }) {
                 {/* подставляют теги <meta>/<link>, которые задают сами страницы */}
                 <Meta />
                 <Links />
+                {/* Восстанавливаем сохранённую тему СИНХРОННО, до первой отрисовки. */}
+                {/* React рендерится позже, поэтому сделать это его средствами */}
+                {/* нельзя — будет видна вспышка не той темы (FOUC) */}
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                    try {
+                        let theme = localStorage.getItem('theme');
+                        if (theme) document.documentElement.dataset.theme = theme;
+                    } catch (e) {}
+                     `,
+                    }}
+                />
             </head>
             <body>
                 {children}
