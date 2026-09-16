@@ -9,7 +9,7 @@ export const menu: NavGroup[] = [
         items: [
             { to: '/movies/popular', label: 'Популярные' },
             { to: '/movies/now-playing', label: 'Сейчас в кино' },
-            { to: '/movies/up-coming', label: 'Скоро' },
+            { to: '/movies/upcoming', label: 'Скоро' },
             { to: '/movies/top-rated', label: 'Топ рейтинга' },
         ],
     },
@@ -33,7 +33,7 @@ export const menu: NavGroup[] = [
         label: 'Премии',
         items: [
             { to: '/awards/popular', label: 'Популярные' },
-            { to: '/awards/up-coming', label: 'Скоро' },
+            { to: '/awards/upcoming', label: 'Скоро' },
         ],
     },
 ];

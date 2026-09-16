@@ -19,7 +19,7 @@ export default [
     ...prefix('movies', [
         route('popular', 'routes/movies-popular.ts'),
         route('now-playing', 'routes/movies-now-playing.ts'),
-        route('up-coming', 'routes/movies-up-coming.ts'),
+        route('upcoming', 'routes/movies-upcoming.ts'),
         route('top-rated', 'routes/movies-top-rated.ts'),
     ]),
 
@@ -34,6 +34,6 @@ export default [
 
     ...prefix('awards', [
         route('popular', 'routes/awards-popular.ts'),
-        route('up-coming', 'routes/awards-up-coming.ts'),
+        route('upcoming', 'routes/awards-upcoming.ts'),
     ]),
 ] satisfies RouteConfig;
