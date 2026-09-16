@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router';
 import { menu } from '@/shared/model';
-import Logo from './footer-logo.svg';
 import s from './Footer.module.css';
 
 export function Footer() {
@@ -8,7 +7,11 @@ export function Footer() {
         <footer className={s.footer}>
             <div className={s.footerContent}>
                 <NavLink to="/" className={s.footerLogo}>
-                    <img src={Logo} width={96} alt="TMDB" />
+                    <img
+                        src="https://www.themoviedb.org/assets/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+                        width={96}
+                        alt="TMDB"
+                    />
                 </NavLink>
                 {/* Колонка на каждый раздел: заголовок + все его ссылки сразу, */}
                 {/* без сворачивания — не дропдаун, как в шапке, а статичный список */}

@@ -1,0 +1,23 @@
+.welcomeSection {
+    min-height: 300px;
+    padding: 48px 24px;
+    position: relative;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Затемняющий градиент поверх фоновой обложки — без него текст плохо читается */
+.welcomeSection::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        to bottom,
+        rgba(13, 37, 63, 0.85),
+        rgba(1, 180, 228, 0.4)
+    );
+}

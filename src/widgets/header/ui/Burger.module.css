@@ -23,6 +23,7 @@
         opacity 0.2s;
 }
 
+/* Три линии складываются в крестик, когда меню открыто */
 .burgerButton[data-open='true'] .burgerLine:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }

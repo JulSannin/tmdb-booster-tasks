@@ -1,6 +1,5 @@
 import { NavLink } from 'react-router';
 import { menu } from '@/shared/model';
-import Logo from './header-logo.svg';
 import { ThemeToggle } from '@/shared/theme-toggle';
 import { useBurgerMenu } from '../model/useBurgerMenu';
 import { BurgerButton } from './BurgerButton';
@@ -17,10 +16,13 @@ export function Header() {
                         isOpen={burger.isOpen}
                         onToggle={burger.toggle}
                     />
-                    {/* Логотип-ссылка на главную. SVG импортируется как файл — */}
-                    {/* Vite подставит сюда путь до собранного ассета */}
+                    {/* Логотип-ссылка на главную. Картинка берётся напрямую с CDN TMDB, */}
+                    {/* а не импортируется как локальный файл */}
                     <NavLink to="/" className={s.headerLogo}>
-                        <img src={Logo} width={128} />
+                        <img
+                            src="https://www.themoviedb.org/assets/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
+                            width={128}
+                        />
                     </NavLink>
                     <nav className={s.headerNav}>
                         <ul className={s.headerMenu}>

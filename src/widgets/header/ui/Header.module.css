@@ -1,5 +1,10 @@
 /* Сама шапка: логотип и меню в один ряд */
+/* position + z-index — иначе, раз body теперь flex-контейнер (sticky footer), */
+/* следующий за header flex-элемент (main) перекрывает вылезающий за границы */
+/* шапки дропдаун, даже несмотря на position: absolute у самого дропдауна */
 .header {
+    position: relative;
+    z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
