@@ -1,12 +1,9 @@
 import { baseApi as api } from '@/shared/api';
 
-// Эндпоинт для Welcome Section: список популярных фильмов, из которых на
-// главной случайно выбирается фон. Вручную скопирован из
-// shared/api/generated/tmdbApi.ts (useGet3MoviePopularQuery) — по
-// договорённости generated-клиент используется только как справочник,
-// а не импортируется напрямую, каждый слайс копирует себе нужный эндпоинт
-
-export type Get3MoviePopularApiResponse = /** status 200 200 */ {
+// Эндпоинт поиска фильмов по названию. Вручную скопирован из
+// shared/api/generated/tmdbApi.ts (useGet3SearchMovieQuery) по той же
+// причине, что и в pages/main/api/api.ts — см. комментарий там
+export type Get3SearchMovieApiResponse = /** status 200 200 */ {
     page?: number;
     results?: {
         adult?: boolean;
@@ -27,30 +24,36 @@ export type Get3MoviePopularApiResponse = /** status 200 200 */ {
     total_pages?: number;
     total_results?: number;
 };
-
-export type Get3MoviePopularApiArg = {
+export type Get3SearchMovieApiArg = {
+    query: string;
+    includeAdult?: boolean;
     language?: string;
+    primaryReleaseYear?: string;
     page?: number;
-    /** ISO-3166-1 code */
     region?: string;
+    year?: string;
 };
 
 const injectedRtkApi = api.injectEndpoints({
     endpoints: (build) => ({
-        get3MoviePopular: build.query<
-            Get3MoviePopularApiResponse,
-            Get3MoviePopularApiArg
+        get3SearchMovie: build.query<
+            Get3SearchMovieApiResponse,
+            Get3SearchMovieApiArg
         >({
             query: (queryArg) => ({
-                url: `/movie/popular`,
+                url: `/search/movie`,
                 params: {
+                    query: queryArg.query,
+                    include_adult: queryArg.includeAdult,
                     language: queryArg.language,
+                    primary_release_year: queryArg.primaryReleaseYear,
                     page: queryArg.page,
                     region: queryArg.region,
+                    year: queryArg.year,
                 },
             }),
         }),
     }),
 });
 
-export const { useGet3MoviePopularQuery } = injectedRtkApi;
+export const { useGet3SearchMovieQuery } = injectedRtkApi;

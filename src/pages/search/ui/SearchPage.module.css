@@ -1,0 +1,24 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.message {
+    text-align: center;
+    color: var(--surface-text);
+}
+
+/* Временный список вместо карточек фильма — карточки ещё не реализованы */
+.results {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 480px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}

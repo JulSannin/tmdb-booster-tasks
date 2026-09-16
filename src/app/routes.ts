@@ -12,6 +12,8 @@ export default [
     // index() — маршрут для "/" (главная страница)
     index('routes/main.ts'),
 
+    route('search', 'routes/search.ts'),
+
     // prefix('movies', [...]) — все пути внутри получают префикс /movies,
     // то есть route('popular', ...) станет доступен по /movies/popular
     ...prefix('movies', [

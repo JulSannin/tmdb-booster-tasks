@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useGet3MoviePopularQuery } from '../api/api';
 import { TMDB_IMAGE_URL } from '@/shared/config';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
+import { SearchMovie } from '@/features/search-movie';
 import s from './WelcomeSectiom.module.css';
 
 // Приветственный блок на главной: случайная обложка из популярных фильмов
 // на фоне
 export function WelcomeSection() {
+    const navigate = useNavigate();
     const { data, isLoading, isFetching, isError } = useGet3MoviePopularQuery(
         {}
     );
@@ -21,8 +24,7 @@ export function WelcomeSection() {
     );
     const backdropUrl = withBackdrop.length
         ? `${TMDB_IMAGE_URL}/original${
-              withBackdrop[Math.floor(seed * withBackdrop.length)]
-                  .backdrop_path
+              withBackdrop[Math.floor(seed * withBackdrop.length)].backdrop_path
           }`
         : undefined;
 
@@ -42,6 +44,15 @@ export function WelcomeSection() {
             >
                 <h1>Добро пожаловать</h1>
                 <p>Миллион фильмов, сериалов и людей. Исследуйте сейчас</p>
+                <SearchMovie
+                    onSubmit={(query) =>
+                        navigate(
+                            query
+                                ? `/search?query=${encodeURIComponent(query)}`
+                                : '/search'
+                        )
+                    }
+                />
             </section>
         </DataWrapper>
     );
