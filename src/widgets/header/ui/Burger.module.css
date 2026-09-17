@@ -6,7 +6,6 @@
     height: 16px;
 }
 
-/* На широких экранах вместо бургера показывается обычное меню из Header */
 @media (min-width: 1024px) {
     .burgerButton {
         display: none;
@@ -23,7 +22,6 @@
         opacity 0.2s;
 }
 
-/* Три линии складываются в крестик, когда меню открыто */
 .burgerButton[data-open='true'] .burgerLine:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }

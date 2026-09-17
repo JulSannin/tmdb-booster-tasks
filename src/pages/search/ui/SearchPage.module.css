@@ -11,7 +11,6 @@
     color: var(--surface-text);
 }
 
-/* Временный список вместо карточек фильма — карточки ещё не реализованы */
 .results {
     display: flex;
     flex-direction: column;
