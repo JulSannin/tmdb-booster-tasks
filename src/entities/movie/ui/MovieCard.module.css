@@ -1,0 +1,54 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 160px;
+    scroll-snap-align: start;
+}
+
+.poster {
+    position: relative;
+    display: block;
+}
+
+.poster img {
+    width: 160px;
+    height: 240px;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.rating {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.ratingGood {
+    background: #21d07a;
+}
+
+.ratingOk {
+    background: #d2d531;
+}
+
+.ratingLow {
+    background: #db2360;
+}
+
+.footer {
+    padding: 8px 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

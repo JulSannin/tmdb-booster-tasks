@@ -1,12 +1,17 @@
 import { WelcomeSection } from './WelcomeSection';
+import { PopularMoviesSection } from './PopularMoviesSection';
+import { TopRatedMoviesSection } from './TopRatedMoviesSection';
+import { UpcomingMoviesSection } from './UpcomingMoviesSection';
+import { NowPlayingMoviesSection } from './NowPlayingMoviesSection';
 
-// Главная страница. Пока только приветственный блок — блоки Popular /
-// Top Rated / Upcoming / Now Playing (см. 1-description.md, п. 2.2-2.3)
-// ещё не реализованы
 export function MainPage() {
     return (
         <>
             <WelcomeSection />
+            <PopularMoviesSection />
+            <TopRatedMoviesSection />
+            <UpcomingMoviesSection />
+            <NowPlayingMoviesSection />
         </>
     );
 }

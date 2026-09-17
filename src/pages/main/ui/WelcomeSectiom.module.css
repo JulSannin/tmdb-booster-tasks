@@ -1,4 +1,9 @@
 .welcomeSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     min-height: 300px;
     padding: 48px 24px;
     position: relative;
@@ -9,7 +14,6 @@
     color: var(--text-color);
 }
 
-/* Затемняющий градиент поверх фоновой обложки — без него текст плохо читается */
 .welcomeSection::before {
     content: '';
     position: absolute;
