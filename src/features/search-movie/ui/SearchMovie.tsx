@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type SubmitEvent } from 'react';
+import { TextField, Button } from '@mui/material';
 import s from './SearchMovie.module.css';
 
 type Props = {
@@ -36,17 +37,23 @@ export function SearchMovie({ onSubmit }: Props) {
 
     return (
         <form className={s.form} onSubmit={handleSubmit}>
-            <input
-                ref={inputRef}
+            <TextField
                 className={s.input}
+                inputRef={inputRef}
                 type="search"
+                size="small"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Название фильма"
             />
-            <button className={s.button} type="submit" disabled={!query.trim()}>
+            <Button
+                className={s.button}
+                type="submit"
+                variant="contained"
+                disabled={!query.trim()}
+            >
                 Search
-            </button>
+            </Button>
         </form>
     );
 }

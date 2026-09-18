@@ -6,6 +6,8 @@
 
 .scrollerWrap {
     position: relative;
+    max-width: calc(7 * 160px + 6 * 16px);
+    margin: 0 auto;
 }
 
 .scroller {

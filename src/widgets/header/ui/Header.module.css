@@ -1,5 +1,6 @@
 .header {
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 10;
     display: flex;
     align-items: center;
@@ -46,38 +47,12 @@
     height: 100%;
     padding: 0 16px;
     color: var(--text-color);
-    text-decoration: none;
     white-space: nowrap;
     font-size: 16px;
     font-weight: 600;
 }
 
-.headerDropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    display: none;
-    min-width: 140px;
-    margin: 0;
-    padding: 8px 0;
-    list-style: none;
-    background: var(--surface-bg);
-    color: var(--surface-text);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.headerMenuItem:hover .headerDropdown,
-.headerMenuItem:focus-within .headerDropdown {
-    display: block;
-}
-
-.headerDropdownLink {
-    display: block;
-    padding: 8px 16px;
-    text-decoration: none;
-    color: inherit;
-}
-
-.headerDropdownLinkActive {
-    font-weight: 600;
+.headerMenuPaper {
+    background: var(--surface-bg) !important;
+    color: var(--surface-text) !important;
 }

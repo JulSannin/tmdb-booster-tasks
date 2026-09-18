@@ -4,6 +4,7 @@ import { ThemeToggle } from '@/shared/theme-toggle';
 import { useBurgerMenu } from '../model/useBurgerMenu';
 import { BurgerButton } from './BurgerButton';
 import { BurgerMenu } from './BurgerMenu';
+import { HeaderMenuGroup } from './HeaderMenuGroup';
 import s from './Header.module.css';
 
 export function Header() {
@@ -26,39 +27,8 @@ export function Header() {
                     </NavLink>
                     <nav className={s.headerNav}>
                         <ul className={s.headerMenu}>
-                            {/* Рендерим каждый пункт меню из shared/model (общий с Footer) */}
-                            {menu.map((links) => (
-                                <li className={s.headerMenuItem} key={links.id}>
-                                    {/* Не NavLink: у группы своего адреса нет, */}
-                                    {/* это просто заголовок, открывающий дропдаун по hover/focus */}
-                                    <span className={s.headerLink}>
-                                        {links.label}
-                                    </span>
-                                    <ul className={s.headerDropdown}>
-                                        {links.items.map((link) => (
-                                            <li key={link.to}>
-                                                <NavLink
-                                                    to={link.to}
-                                                    end
-                                                    // Снимаем фокус после клика, чтобы дропдаун не оставался открытым
-                                                    // из-за :focus-within в CSS
-                                                    onClick={(e) =>
-                                                        e.currentTarget.blur()
-                                                    }
-                                                    className={({
-                                                        isActive,
-                                                    }) =>
-                                                        isActive
-                                                            ? `${s.headerDropdownLink} ${s.headerDropdownLinkActive}`
-                                                            : s.headerDropdownLink
-                                                    }
-                                                >
-                                                    {link.label}
-                                                </NavLink>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </li>
+                            {menu.map((group) => (
+                                <HeaderMenuGroup key={group.id} group={group} />
                             ))}
                         </ul>
                     </nav>

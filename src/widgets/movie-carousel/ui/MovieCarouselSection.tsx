@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { NavLink } from 'react-router';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
-import { MovieCard } from '@/entities/movie';
+import { MovieCard, MovieCardSkeleton } from '@/entities/movie';
 import s from './MovieCarouselSection.module.css';
 
 type Movie = {
@@ -46,6 +46,13 @@ export function MovieCarouselSection({
                 isLoading={isLoading}
                 isError={isError}
                 isFetching={isFetching}
+                skeleton={
+                    <div className={s.scroller}>
+                        {Array.from({ length: 6 }, (_, i) => (
+                            <MovieCardSkeleton key={i} />
+                        ))}
+                    </div>
+                }
             >
                 <div className={s.scrollerWrap}>
                     <button

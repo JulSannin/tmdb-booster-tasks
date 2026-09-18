@@ -11,8 +11,7 @@
 }
 
 .poster img {
-    width: 160px;
-    height: 240px;
+    width: 100%;
     aspect-ratio: 2 / 3;
     object-fit: cover;
 }
