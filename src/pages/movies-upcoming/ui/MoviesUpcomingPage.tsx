@@ -1,4 +1,5 @@
-// Заглушка: страница ещё не реализована
+import { MediaCategoryWidget } from '@/widgets/media-category';
+
 export function MoviesUpcomingPage() {
-    return <div>MoviesUpcomingPage</div>;
+    return <MediaCategoryWidget mediaType="movie" defaultCategory="upcoming" />;
 }

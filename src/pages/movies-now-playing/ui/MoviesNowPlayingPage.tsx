@@ -1,4 +1,7 @@
-// Заглушка: страница ещё не реализована
+import { MediaCategoryWidget } from '@/widgets/media-category';
+
 export function MoviesNowPlayingPage() {
-    return <div>MoviesNowPlayingPage</div>;
+    return (
+        <MediaCategoryWidget mediaType="movie" defaultCategory="now_playing" />
+    );
 }

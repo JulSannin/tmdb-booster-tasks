@@ -1,0 +1,20 @@
+.menuPaper {
+    background: var(--surface-bg) !important;
+    color: var(--surface-text) !important;
+}
+
+.select :global(.MuiSelect-select) {
+    color: var(--surface-text) !important;
+}
+
+.select :global(.MuiSvgIcon-root) {
+    color: var(--surface-text) !important;
+}
+
+.select :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: color-mix(
+        in srgb,
+        var(--surface-text) 30%,
+        transparent
+    ) !important;
+}

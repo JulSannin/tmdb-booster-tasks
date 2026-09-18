@@ -1,4 +1,5 @@
-// Заглушка: страница ещё не реализована
+import { MediaCategoryWidget } from '@/widgets/media-category';
+
 export function TvPopularPage() {
-    return <div>TvPopularPage</div>;
+    return <MediaCategoryWidget mediaType="tv" defaultCategory="popular" />;
 }

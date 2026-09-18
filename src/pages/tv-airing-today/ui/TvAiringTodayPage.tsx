@@ -1,4 +1,5 @@
-// Заглушка: страница ещё не реализована
+import { MediaCategoryWidget } from '@/widgets/media-category';
+
 export function TvAiringTodayPage() {
-    return <div>TvAiringTodayPage</div>;
+    return <MediaCategoryWidget mediaType="tv" defaultCategory="now_playing" />;
 }

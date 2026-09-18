@@ -1,6 +1,6 @@
 import { useGet3MoviePopularQuery } from '../api/api';
 import { MovieCarouselSection } from '@/widgets/movie-carousel';
-import { TMDB_IMAGE_URL } from '@/shared/config';
+import { posterUrl } from '@/shared/lib';
 
 export function PopularMoviesSection() {
     const { data, isLoading, isFetching, isError } = useGet3MoviePopularQuery(
@@ -14,9 +14,7 @@ export function PopularMoviesSection() {
             id: m.id,
             title: m.title,
             voteAverage: m.vote_average,
-            posterUrl: m.poster_path
-                ? `${TMDB_IMAGE_URL}/w500${m.poster_path}`
-                : 'https://placehold.co/342x513?text=No+Poster',
+            posterUrl: posterUrl(m.poster_path),
         }));
 
     return (

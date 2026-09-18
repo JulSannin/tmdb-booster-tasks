@@ -1,4 +1,7 @@
-// Заглушка: страница ещё не реализована
+import { MediaCategoryWidget } from '@/widgets/media-category';
+
 export function MoviesTopRatedPage() {
-    return <div>MoviesTopRatedPage</div>;
+    return (
+        <MediaCategoryWidget mediaType="movie" defaultCategory="top_rated" />
+    );
 }

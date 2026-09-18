@@ -1,4 +1,5 @@
-// Заглушка: страница ещё не реализована
+import { MediaCategoryWidget } from '@/widgets/media-category';
+
 export function TvOnTvPage() {
-    return <div>TvOnTvPage</div>;
+    return <MediaCategoryWidget mediaType="tv" defaultCategory="upcoming" />;
 }

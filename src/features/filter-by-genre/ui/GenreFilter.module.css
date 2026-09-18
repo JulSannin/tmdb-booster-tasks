@@ -1,0 +1,24 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genre {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--surface-text) 15%, transparent);
+    background: transparent;
+    color: inherit;
+    font-size: 14px;
+}
+
+.genreActive {
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--secondary-color);
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 14px;
+}

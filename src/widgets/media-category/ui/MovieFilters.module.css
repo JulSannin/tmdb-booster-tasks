@@ -1,0 +1,42 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 320px;
+}
+
+.row {
+    border-radius: 16px !important;
+    background: var(--surface-bg) !important;
+    color: var(--surface-text) !important;
+    box-shadow: 0 0 0 1px
+        color-mix(in srgb, var(--surface-text) 15%, transparent) !important;
+}
+
+.row::before {
+    display: none;
+}
+
+.rowLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badge {
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-text) 8%, transparent);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.chevron {
+    opacity: 0.5;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

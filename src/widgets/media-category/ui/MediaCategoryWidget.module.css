@@ -1,0 +1,48 @@
+.page {
+    padding: 24px;
+}
+
+.title {
+    margin: 0 0 24px;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.grid {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 1023px) {
+    .title {
+        text-align: center;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .grid {
+        width: 100%;
+    }
+}
+
+.paginationWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.paginationWrap :global(.MuiPaginationItem-root) {
+    color: var(--surface-text) !important;
+}
+
+.paginationWrap :global(.MuiPaginationItem-root.Mui-selected) {
+    background: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}
