@@ -18,7 +18,7 @@ export const menu: NavGroup[] = [
         label: 'ТВ-шоу',
         items: [
             { to: '/tv/popular', label: 'Популярные' },
-            { to: '/tv/airing-today', label: 'Сейчас в кино' },
+            { to: '/tv/airing-today', label: 'Сегодня в эфире' },
             { to: '/tv/on-tv', label: 'Скоро' },
             { to: '/tv/top-rated', label: 'Топ рейтинга' },
         ],

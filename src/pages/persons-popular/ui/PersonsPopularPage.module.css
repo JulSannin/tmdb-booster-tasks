@@ -1,0 +1,48 @@
+.page {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.title {
+    margin: 0 0 24px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--card-gap);
+}
+
+@media (max-width: 1023px) {
+    .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    .grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 559px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.paginationWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.paginationWrap :global(.MuiPaginationItem-root) {
+    color: var(--surface-text) !important;
+}
+
+.paginationWrap :global(.MuiPaginationItem-root.Mui-selected) {
+    background: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}

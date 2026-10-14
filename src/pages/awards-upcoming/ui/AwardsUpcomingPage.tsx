@@ -1,4 +1,5 @@
-// Заглушка: страница ещё не реализована
+import { AwardsCatalogWidget } from '@/widgets/awards-catalog';
+
 export function AwardsUpcomingPage() {
-    return <div>AwardsUpcomingPage</div>;
+    return <AwardsCatalogWidget category="upcoming" />;
 }

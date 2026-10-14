@@ -19,14 +19,24 @@ import {
 import { mapMovies, mapTvShows } from '../model/mapToCard';
 import s from './MediaCategoryWidget.module.css';
 
-const CATEGORY_LABELS: Record<Category, string> = {
-    popular: 'Popular',
-    top_rated: 'Top Rated',
-    upcoming: 'Upcoming',
-    now_playing: 'Now Playing',
-};
-
 type Props = { mediaType: 'movie' | 'tv'; defaultCategory: Category };
+
+// Заголовок у каждой пары «тип + категория» свой: по-русски «Сейчас в кино» и
+// «Сегодня в эфире» не собрать из прилагательного и существительного
+const TITLES: Record<Props['mediaType'], Record<Category, string>> = {
+    movie: {
+        popular: 'Популярные фильмы',
+        top_rated: 'Лучшие фильмы',
+        upcoming: 'Ожидаемые фильмы',
+        now_playing: 'Сейчас в кино',
+    },
+    tv: {
+        popular: 'Популярные ТВ-шоу',
+        top_rated: 'Лучшие ТВ-шоу',
+        upcoming: 'Ожидаемые ТВ-шоу',
+        now_playing: 'Сегодня в эфире',
+    },
+};
 
 export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -129,11 +139,9 @@ export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
         ? mapMovies(movieQuery.data?.results ?? [])
         : mapTvShows(tvQuery.data?.results ?? []);
 
-    const title = `${CATEGORY_LABELS[category]} ${isMovie ? 'Movies' : 'TV Shows'}`;
-
     return (
         <div className={s.page}>
-            <h1 className={s.title}>{title}</h1>
+            <h1 className={s.title}>{TITLES[mediaType][category]}</h1>
             <div className={s.content}>
                 <MovieFilters
                     sortOptions={activeSortOptions}

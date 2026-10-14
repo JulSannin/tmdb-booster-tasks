@@ -1,0 +1,44 @@
+.card {
+    --name-line-height: 20px;
+    --info-line-height: 18px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.photo {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.footer {
+    padding: 10px 12px 12px;
+}
+
+.name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: var(--name-line-height);
+    height: var(--name-line-height);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.info {
+    margin: 0;
+    font-size: 13px;
+    line-height: var(--info-line-height);
+    height: calc(2 * var(--info-line-height));
+    color: color-mix(in srgb, var(--surface-text) 60%, transparent);
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

@@ -1,0 +1,93 @@
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 280px;
+    max-width: 100%;
+}
+
+.row {
+    border-radius: 16px !important;
+    background: var(--surface-bg) !important;
+    color: var(--surface-text) !important;
+    box-shadow: 0 0 0 1px
+        color-mix(in srgb, var(--surface-text) 15%, transparent) !important;
+}
+
+.row::before {
+    display: none;
+}
+
+.chevron {
+    opacity: 0.5;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.groupTitle {
+    margin: 0;
+    opacity: 0.7;
+}
+
+.search {
+    border-radius: 999px !important;
+    background: var(--secondary-color) !important;
+    color: var(--surface-text) !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    box-shadow: none !important;
+}
+
+.search:global(.Mui-disabled) {
+    background: color-mix(
+        in srgb,
+        var(--surface-text) 15%,
+        transparent
+    ) !important;
+    color: color-mix(in srgb, var(--surface-text) 40%, transparent) !important;
+}
+
+.dateRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dateLabel {
+    width: 32px;
+    opacity: 0.7;
+}
+
+.date {
+    flex: 1;
+}
+
+.date :global(.MuiOutlinedInput-input) {
+    color: var(--surface-text) !important;
+}
+
+.date :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: color-mix(
+        in srgb,
+        var(--surface-text) 30%,
+        transparent
+    ) !important;
+}
+
+:global(:root[data-theme='dark'])
+    .date
+    :global(input)::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light']))
+        .date
+        :global(input)::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+}

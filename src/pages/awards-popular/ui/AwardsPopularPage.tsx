@@ -1,4 +1,5 @@
-// Заглушка: страница ещё не реализована
+import { AwardsCatalogWidget } from '@/widgets/awards-catalog';
+
 export function AwardsPopularPage() {
-    return <div>AwardsPopularPage</div>;
+    return <AwardsCatalogWidget category="popular" />;
 }

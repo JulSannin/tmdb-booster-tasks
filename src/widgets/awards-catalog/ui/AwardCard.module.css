@@ -1,0 +1,45 @@
+.card {
+    --line-height: 20px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.card:hover .name {
+    text-decoration: underline;
+}
+
+.logo {
+    aspect-ratio: 1;
+    background: #fff;
+}
+
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer {
+    padding: 10px 12px 12px;
+}
+
+.name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: var(--line-height);
+    overflow-wrap: break-word;
+}
+
+.date {
+    margin: 0;
+    font-size: 14px;
+    line-height: var(--line-height);
+    color: color-mix(in srgb, var(--surface-text) 60%, transparent);
+}

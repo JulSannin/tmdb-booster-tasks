@@ -52,7 +52,7 @@ export function MovieFilters({
                 <AccordionSummary
                     expandIcon={<span className={s.chevron}>›</span>}
                 >
-                    Sort
+                    Сортировать
                 </AccordionSummary>
                 <AccordionDetails className={s.details}>
                     <SortSelect
@@ -74,7 +74,7 @@ export function MovieFilters({
                     expandIcon={<span className={s.chevron}>›</span>}
                 >
                     <span className={s.rowLabel}>
-                        Filters
+                        Фильтры
                         {activeFiltersCount > 0 && (
                             <span className={s.badge}>
                                 {activeFiltersCount}
@@ -97,7 +97,7 @@ export function MovieFilters({
                 </AccordionDetails>
             </Accordion>
 
-            <Button onClick={onReset}>Reset filters</Button>
+            <Button onClick={onReset}>Сбросить фильтры</Button>
         </div>
     );
 }

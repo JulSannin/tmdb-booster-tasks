@@ -40,6 +40,10 @@ button {
 
     --card-width: 160px;
     --card-gap: 16px;
+    --card-bg: color-mix(in srgb, var(--surface-text) 5%, var(--surface-bg));
+    --card-shadow:
+        0 0 0 1px color-mix(in srgb, var(--surface-text) 8%, transparent),
+        0 4px 8px -2px rgba(0, 0, 0, 0.2);
 }
 
 :root[data-theme='dark'] {

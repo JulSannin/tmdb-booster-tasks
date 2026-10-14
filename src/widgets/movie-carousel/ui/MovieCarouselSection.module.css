@@ -18,10 +18,14 @@
 }
 
 .scroller {
+    --shadow-room: 8px;
     display: flex;
     gap: var(--card-gap);
     overflow-x: auto;
-    padding-bottom: 8px;
+    margin: calc(-1 * var(--shadow-room));
+    padding: var(--shadow-room) var(--shadow-room)
+        calc(var(--shadow-room) + 8px);
+    scroll-padding-inline: var(--shadow-room);
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
 }

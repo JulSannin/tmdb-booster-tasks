@@ -4,6 +4,10 @@
     flex-direction: column;
     flex: 0 0 var(--card-width);
     scroll-snap-align: start;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
 }
 
 .poster {
@@ -41,7 +45,7 @@
 }
 
 .footer {
-    padding: 8px 0;
+    padding: 10px 12px 12px;
 }
 
 .title {

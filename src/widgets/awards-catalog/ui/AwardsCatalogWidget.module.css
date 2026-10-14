@@ -1,0 +1,33 @@
+.page {
+    padding: 24px;
+}
+
+.title {
+    margin: 0 0 24px;
+}
+
+.content {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.results {
+    flex: 1;
+    min-width: 0;
+}
+
+@media (max-width: 1023px) {
+    .title {
+        text-align: center;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .results {
+        width: 100%;
+    }
+}
