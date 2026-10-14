@@ -1,7 +1,8 @@
 .card {
+    --title-line-height: 20px;
     display: flex;
     flex-direction: column;
-    flex: 0 0 160px;
+    flex: 0 0 var(--card-width);
     scroll-snap-align: start;
 }
 
@@ -47,6 +48,8 @@
     margin: 0;
     font-size: 14px;
     font-weight: 600;
+    line-height: var(--title-line-height);
+    height: calc(2 * var(--title-line-height));
     display: -webkit-box;
     line-clamp: 2;
     -webkit-line-clamp: 2;

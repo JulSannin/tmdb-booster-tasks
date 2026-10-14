@@ -5,7 +5,7 @@ type Props = {
     id: number;
     title?: string;
     // Готовый URL картинки (или заглушка) — собирает вызывающая секция,
-    // MovieCard сам с TMDB_IMAGE_URL и placehold.co не работает
+    // MovieCard сам с TMDB_IMAGE_URL и заглушкой не работает
     posterUrl: string;
     voteAverage?: number;
 };

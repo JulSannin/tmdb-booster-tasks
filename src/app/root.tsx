@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
 import { Header } from '@/widgets/header';
 import { Footer } from '@/widgets/footer';
+import { Preloader } from '@/shared/ui/Preloader';
 import { store } from './model/store';
 // Шрифт лежит в node_modules (пакет @fontsource) — файлы .woff2 попадут
 // в сборку и будут грузиться с нашего домена, без обращения к Google Fonts
@@ -74,7 +75,9 @@ export default function Root() {
     );
 }
 
-// Показывается, пока страница ещё грузится/гидратируется на клиенте
+// Показывается, пока страница ещё грузится/гидратируется на клиенте. Эту
+// разметку React Router вшивает в index.html при сборке — поэтому прелоадер
+// виден сразу, ещё до загрузки JS
 export function HydrateFallback() {
-    return <p>Загрузка...</p>;
+    return <Preloader />;
 }

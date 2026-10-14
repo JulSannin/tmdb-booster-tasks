@@ -25,3 +25,7 @@
         rgba(1, 180, 228, 0.4)
     );
 }
+
+.welcomeSection :global(.MuiSkeleton-root) {
+    background-color: color-mix(in srgb, currentColor 25%, transparent);
+}

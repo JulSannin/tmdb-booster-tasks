@@ -31,3 +31,5 @@ dist-ssr
 # React Router
 build
 .react-router
+
+CLAUDE.md

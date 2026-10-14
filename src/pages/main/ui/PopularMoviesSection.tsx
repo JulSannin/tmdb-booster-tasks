@@ -9,7 +9,7 @@ export function PopularMoviesSection() {
 
     const movies = (data?.results ?? [])
         .filter((m): m is typeof m & { id: number } => m.id !== undefined)
-        .slice(0, 13)
+        .slice(0, 14)
         .map((m) => ({
             id: m.id,
             title: m.title,

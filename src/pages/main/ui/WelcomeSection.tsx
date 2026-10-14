@@ -1,10 +1,36 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { Skeleton } from '@mui/material';
 import { useGet3MoviePopularQuery } from '../api/api';
 import { TMDB_IMAGE_URL } from '@/shared/config';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
-import { SearchMovie } from '@/features/search-movie';
+import { SearchMovie, SearchMovieSkeleton } from '@/features/search-movie';
 import s from './WelcomeSectiom.module.css';
+
+const TITLE = 'Добро пожаловать';
+const SUBTITLE = 'Миллион фильмов, сериалов и людей. Исследуйте сейчас';
+
+// Скелетон повторяет разметку WelcomeSection: те же section/h1/p, а текст
+// внутри Skeleton скрыт и задаёт размер полоски. Поэтому высота и переносы
+// строк совпадают с настоящим блоком на любой ширине экрана, и содержимое
+// под ним не "прыгает" после загрузки
+function WelcomeSectionSkeleton() {
+    return (
+        <section className={s.welcomeSection}>
+            <h1>
+                <Skeleton>
+                    <span>{TITLE}</span>
+                </Skeleton>
+            </h1>
+            <p>
+                <Skeleton>
+                    <span>{SUBTITLE}</span>
+                </Skeleton>
+            </p>
+            <SearchMovieSkeleton />
+        </section>
+    );
+}
 
 // Приветственный блок на главной: случайная обложка из популярных фильмов
 // на фоне
@@ -33,6 +59,7 @@ export function WelcomeSection() {
             isLoading={isLoading}
             isError={isError}
             isFetching={isFetching}
+            skeleton={<WelcomeSectionSkeleton />}
         >
             <section
                 className={s.welcomeSection}
@@ -42,8 +69,8 @@ export function WelcomeSection() {
                         : undefined
                 }
             >
-                <h1>Добро пожаловать</h1>
-                <p>Миллион фильмов, сериалов и людей. Исследуйте сейчас</p>
+                <h1>{TITLE}</h1>
+                <p>{SUBTITLE}</p>
                 <SearchMovie
                     onSubmit={(query) =>
                         navigate(

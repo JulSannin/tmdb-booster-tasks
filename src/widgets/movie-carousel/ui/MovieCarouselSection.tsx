@@ -1,8 +1,13 @@
-import { useRef } from 'react';
+import { useRef, type CSSProperties } from 'react';
 import { NavLink } from 'react-router';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
 import { MovieCard, MovieCardSkeleton } from '@/entities/movie';
 import s from './MovieCarouselSection.module.css';
+
+// Сколько карточек помещается на "странице" карусели при полной ширине. От
+// этого числа CSS считает максимальную ширину секции (--cards-per-page), и по
+// нему же рисуется скелетон — так число задано в одном месте
+const CARDS_PER_PAGE = 7;
 
 type Movie = {
     id: number;
@@ -30,17 +35,34 @@ export function MovieCarouselSection({
 }: Props) {
     const scrollerRef = useRef<HTMLDivElement>(null);
 
+    // Один клик листает на "страницу": на столько целых карточек, сколько их
+    // сейчас помещается в контейнер (при полной ширине — CARDS_PER_PAGE, лимит
+    // задаёт max-width у .section). Расстояние берём кратным шагу карточки
+    // (ширина + gap): иначе scroll-snap округлит, например, 6.2 карточки до 6
     function scroll(direction: -1 | 1) {
         const el = scrollerRef.current;
         if (!el) return;
+        const card = el.firstElementChild as HTMLElement | null;
+        if (!card) return;
+
+        const gap = parseFloat(getComputedStyle(el).columnGap) || 0;
+        const step = card.offsetWidth + gap;
+        const visibleCards = Math.max(
+            1,
+            Math.floor((el.clientWidth + gap) / step)
+        );
+
         el.scrollBy({
-            left: direction * el.clientWidth * 0.9,
+            left: direction * visibleCards * step,
             behavior: 'smooth',
         });
     }
 
     return (
-        <section className={s.section}>
+        <section
+            className={s.section}
+            style={{ '--cards-per-page': CARDS_PER_PAGE } as CSSProperties}
+        >
             <h2>{title}</h2>
             <DataWrapper
                 isLoading={isLoading}
@@ -48,7 +70,7 @@ export function MovieCarouselSection({
                 isFetching={isFetching}
                 skeleton={
                     <div className={s.scroller}>
-                        {Array.from({ length: 6 }, (_, i) => (
+                        {Array.from({ length: CARDS_PER_PAGE }, (_, i) => (
                             <MovieCardSkeleton key={i} />
                         ))}
                     </div>

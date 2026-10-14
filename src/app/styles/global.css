@@ -36,6 +36,10 @@ button {
 
     --surface-bg: #ffffff;
     --surface-text: #0d253f;
+    --skeleton-bg: color-mix(in srgb, var(--surface-text) 14%, transparent);
+
+    --card-width: 160px;
+    --card-gap: 16px;
 }
 
 :root[data-theme='dark'] {
@@ -61,4 +65,8 @@ body {
 
 main {
     flex: 1;
+}
+
+html .MuiSkeleton-root {
+    background-color: var(--skeleton-bg);
 }
