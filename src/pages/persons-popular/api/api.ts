@@ -2,8 +2,8 @@ import { baseApi as api } from '@/shared/api';
 
 // Эндпоинт популярных людей. Вручную скопирован из
 // shared/api/generated/tmdbApi.ts (useGet3PersonPopularQuery) по той же
-// причине, что и в pages/main/api/api.ts — см. комментарий там. Типы урезаны
-// до полей, которые нужны странице
+// причине, что и в widgets/media-carousel/api/api.ts — см. комментарий там.
+// Типы урезаны до полей, которые нужны странице
 export type Get3PersonPopularApiResponse = {
     page?: number;
     results?: {

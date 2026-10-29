@@ -1,0 +1,21 @@
+.toggle {
+    display: flex;
+    gap: 8px;
+}
+
+.option,
+.optionActive {
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--surface-text) 15%, transparent);
+    background: transparent;
+    color: inherit;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.optionActive {
+    border-color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}

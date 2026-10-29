@@ -1,34 +1,38 @@
 import { useRef, type CSSProperties } from 'react';
-import { NavLink } from 'react-router';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
-import { MovieCard, MovieCardSkeleton } from '@/entities/movie';
-import s from './MovieCarouselSection.module.css';
+import {
+    MediaCard,
+    MediaCardSkeleton,
+    type MediaCardProps,
+} from '@/entities/media';
+import { MediaTypeToggle, type MediaType } from './MediaTypeToggle';
+import s from './MediaCarousel.module.css';
 
 // Сколько карточек помещается на "странице" карусели при полной ширине. От
 // этого числа CSS считает максимальную ширину секции (--cards-per-page), и по
 // нему же рисуется скелетон — так число задано в одном месте
 const CARDS_PER_PAGE = 7;
 
-type Movie = {
-    id: number;
-    title?: string;
-    posterUrl: string;
-    voteAverage?: number;
-};
-
 type Props = {
     title: string;
-    viewMoreHref: string;
-    movies: Movie[];
+    // Что сейчас показывает карусель: фильмы или ТВ-шоу. Состояние хранит
+    // родитель — по нему же он выбирает, какие данные загружать
+    mediaType: MediaType;
+    onMediaTypeChange: (value: MediaType) => void;
+    cards: MediaCardProps[];
     isLoading: boolean;
     isFetching: boolean;
     isError: boolean;
 };
 
-export function MovieCarouselSection({
+// Карусель карточек с заголовком и переключателем фильмы/ТВ-шоу. Данные она
+// не грузит: их запрашивают блоки PopularCarousel, TopRatedCarousel,
+// UpcomingCarousel и NowPlayingCarousel и передают сюда пропсами
+export function MediaCarousel({
     title,
-    viewMoreHref,
-    movies,
+    mediaType,
+    onMediaTypeChange,
+    cards,
     isLoading,
     isFetching,
     isError,
@@ -63,15 +67,25 @@ export function MovieCarouselSection({
             className={s.section}
             style={{ '--cards-per-page': CARDS_PER_PAGE } as CSSProperties}
         >
-            <h2>{title}</h2>
+            <div className={s.header}>
+                <h2>{title}</h2>
+                <MediaTypeToggle
+                    value={mediaType}
+                    onChange={onMediaTypeChange}
+                />
+            </div>
+            {/* key: при смене типа лента пересоздаётся и начинается с первой
+                карточки, а не остаётся прокрученной. Переключатель стоит вне
+                DataWrapper, поэтому не пересоздаётся и не теряет фокус */}
             <DataWrapper
+                key={mediaType}
                 isLoading={isLoading}
                 isError={isError}
                 isFetching={isFetching}
                 skeleton={
                     <div className={s.scroller}>
                         {Array.from({ length: CARDS_PER_PAGE }, (_, i) => (
-                            <MovieCardSkeleton key={i} />
+                            <MediaCardSkeleton key={i} />
                         ))}
                     </div>
                 }
@@ -86,8 +100,8 @@ export function MovieCarouselSection({
                         ‹
                     </button>
                     <div className={s.scroller} ref={scrollerRef}>
-                        {movies.map((movie) => (
-                            <MovieCard key={movie.id} {...movie} />
+                        {cards.map((card) => (
+                            <MediaCard key={card.id} {...card} />
                         ))}
                     </div>
                     <button
@@ -100,9 +114,6 @@ export function MovieCarouselSection({
                     </button>
                 </div>
             </DataWrapper>
-            <NavLink to={viewMoreHref} className={s.viewMore}>
-                View More
-            </NavLink>
         </section>
     );
 }

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { Skeleton } from '@mui/material';
-import { useGet3MoviePopularQuery } from '../api/api';
 import { TMDB_IMAGE_URL } from '@/shared/config';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
-import { SearchMovie, SearchMovieSkeleton } from '@/features/search-movie';
-import s from './WelcomeSectiom.module.css';
+import { SearchMedia, SearchMediaSkeleton } from '@/features/search-media';
+import { useGet3MoviePopularQuery } from '@/widgets/media-carousel';
+import s from './WelcomeSection.module.css';
 
 const TITLE = 'Добро пожаловать';
 const SUBTITLE = 'Миллион фильмов, сериалов и людей. Исследуйте сейчас';
@@ -27,7 +27,7 @@ function WelcomeSectionSkeleton() {
                     <span>{SUBTITLE}</span>
                 </Skeleton>
             </p>
-            <SearchMovieSkeleton />
+            <SearchMediaSkeleton />
         </section>
     );
 }
@@ -71,7 +71,7 @@ export function WelcomeSection() {
             >
                 <h1>{TITLE}</h1>
                 <p>{SUBTITLE}</p>
-                <SearchMovie
+                <SearchMedia
                     onSubmit={(query) =>
                         navigate(
                             query
