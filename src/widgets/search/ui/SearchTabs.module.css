@@ -1,0 +1,44 @@
+.tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tab,
+.tabActive {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 16px;
+    border-radius: 16px;
+    border: 1px solid color-mix(in srgb, var(--surface-text) 15%, transparent);
+    background: transparent;
+    color: inherit;
+    font-weight: 600;
+    text-align: left;
+}
+
+.tabActive {
+    border-color: var(--secondary-color);
+    background: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+/* currentColor, чтобы бейдж читался и на обычной, и на активной вкладке */
+.count {
+    min-width: 2.5em;
+    padding: 2px 10px;
+    border-radius: 999px;
+    text-align: center;
+    background: color-mix(in srgb, currentColor 12%, transparent);
+    font-size: 14px;
+}
+
+/* На узких экранах вкладки встают в ряд над выдачей */
+@media (max-width: 1023px) {
+    .tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

@@ -1,0 +1,51 @@
+.layout {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+}
+
+.sidebar {
+    flex: 0 0 220px;
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.message {
+    padding: 24px;
+    text-align: center;
+    color: var(--surface-text);
+    /* В сообщении есть введённый запрос: длинная строка без пробелов
+       не должна растягивать страницу */
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 1023px) {
+    .layout {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* В колонке flex-basis задаёт высоту, а не ширину */
+    .sidebar {
+        flex-basis: auto;
+    }
+}
+
+.paginationWrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.paginationWrap :global(.MuiPaginationItem-root) {
+    color: var(--surface-text) !important;
+}
+
+.paginationWrap :global(.MuiPaginationItem-root.Mui-selected) {
+    background: var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+}

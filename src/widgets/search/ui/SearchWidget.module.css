@@ -10,14 +10,3 @@
     text-align: center;
     color: var(--surface-text);
 }
-
-.results {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    max-width: 480px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
