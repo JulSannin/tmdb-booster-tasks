@@ -1,4 +1,4 @@
-import type { SortOption } from '@/features/sort-movies';
+import type { SortOption } from '@/features/sort-select';
 import type { Award } from './awards';
 
 export type AwardsCategory = 'popular' | 'upcoming';

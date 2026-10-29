@@ -5,14 +5,14 @@ import {
     AccordionDetails,
     Button,
 } from '@mui/material';
-import { SortSelect, type SortOption } from '@/features/sort-movies';
+import { SortSelect, type SortOption } from '@/features/sort-select';
 import { RatingRangeFilter } from '@/features/filter-by-rating';
 import { GenreFilter } from '@/features/filter-by-genre';
-import s from './MovieFilters.module.css';
+import s from './MediaFilters.module.css';
 
 type Genre = { id: number; name: string };
 
-export type MovieFiltersValue = {
+export type MediaFiltersValue = {
     sortBy: string;
     ratingRange: [number, number];
     genres: number[];
@@ -21,12 +21,12 @@ export type MovieFiltersValue = {
 type Props = {
     sortOptions: SortOption[];
     genreOptions: Genre[];
-    value: MovieFiltersValue;
-    onChange: (value: MovieFiltersValue) => void;
+    value: MediaFiltersValue;
+    onChange: (value: MediaFiltersValue) => void;
     onReset: () => void;
 };
 
-export function MovieFilters({
+export function MediaFilters({
     sortOptions,
     genreOptions,
     value,

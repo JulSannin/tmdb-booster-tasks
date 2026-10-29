@@ -1,4 +1,4 @@
-import type { SortOption } from '@/features/sort-movies';
+import type { SortOption } from '@/features/sort-select';
 
 export const MOVIE_SORT_OPTIONS: SortOption[] = [
     { value: 'popularity.desc', label: 'По популярности (убывание)' },

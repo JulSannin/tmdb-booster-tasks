@@ -1,7 +1,6 @@
 import { useSearchParams } from 'react-router';
 import { Pagination } from '@mui/material';
-import { MovieFilters, type MovieFiltersValue } from './MovieFilters';
-import { MovieGrid } from './MovieGrid';
+import { MediaFilters, type MediaFiltersValue } from './MediaFilters';
 import {
     useGet3DiscoverMovieQuery,
     useGet3DiscoverTvQuery,
@@ -16,7 +15,7 @@ import {
     getTvCategoryPreset,
     type Category,
 } from '../model/categoryPresets';
-import { mapMovies, mapTvShows } from '../model/mapToCard';
+import { MediaGrid, mapMovies, mapTvShows } from '@/entities/media';
 import s from './MediaCategoryWidget.module.css';
 
 type Props = { mediaType: 'movie' | 'tv'; defaultCategory: Category };
@@ -45,7 +44,7 @@ export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
     // внутри виджета — тут она всегда равна тому, что передал defaultCategory
     const category = defaultCategory;
     const page = Number(searchParams.get('page') ?? 1);
-    const filters: MovieFiltersValue = {
+    const filters: MediaFiltersValue = {
         sortBy: searchParams.get('sort_by') ?? '',
         ratingRange: [
             Number(searchParams.get('rating_gte') ?? 0),
@@ -57,7 +56,7 @@ export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
             .map(Number),
     };
 
-    function updateFilters(next: MovieFiltersValue) {
+    function updateFilters(next: MediaFiltersValue) {
         setSearchParams({
             sort_by: next.sortBy,
             rating_gte: String(next.ratingRange[0]),
@@ -135,7 +134,7 @@ export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
     // Маппинг результатов оставляю отдельной веткой (не через activeQuery) —
     // movie- и tv-формы результатов TMDB разные (title/name и т.д.), общий
     // union тут только всё усложнил бы
-    const movies = isMovie
+    const cards = isMovie
         ? mapMovies(movieQuery.data?.results ?? [])
         : mapTvShows(tvQuery.data?.results ?? []);
 
@@ -143,7 +142,7 @@ export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
         <div className={s.page}>
             <h1 className={s.title}>{TITLES[mediaType][category]}</h1>
             <div className={s.content}>
-                <MovieFilters
+                <MediaFilters
                     sortOptions={activeSortOptions}
                     genreOptions={genreOptions}
                     value={{ ...filters, sortBy: resolvedSortBy }}
@@ -151,8 +150,8 @@ export function MediaCategoryWidget({ mediaType, defaultCategory }: Props) {
                     onReset={resetFilters}
                 />
                 <div className={s.grid}>
-                    <MovieGrid
-                        movies={movies}
+                    <MediaGrid
+                        cards={cards}
                         isLoading={isLoading}
                         isFetching={isFetching}
                         isError={isError}

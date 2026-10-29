@@ -1,22 +1,16 @@
 import { DataWrapper } from '@/shared/ui/DataWrapper';
-import { MovieCard, MovieCardSkeleton } from '@/entities/movie';
-import s from './MovieGrid.module.css';
-
-type Movie = {
-    id: number;
-    title?: string;
-    posterUrl: string;
-    voteAverage?: number;
-};
+import { MediaCard, type MediaCardProps } from './MediaCard';
+import { MediaCardSkeleton } from './MediaCardSkeleton';
+import s from './MediaGrid.module.css';
 
 type Props = {
-    movies: Movie[];
+    cards: MediaCardProps[];
     isLoading: boolean;
     isFetching: boolean;
     isError: boolean;
 };
 
-export function MovieGrid({ movies, isLoading, isFetching, isError }: Props) {
+export function MediaGrid({ cards, isLoading, isFetching, isError }: Props) {
     return (
         <DataWrapper
             isLoading={isLoading}
@@ -25,14 +19,14 @@ export function MovieGrid({ movies, isLoading, isFetching, isError }: Props) {
             skeleton={
                 <div className={s.grid}>
                     {Array.from({ length: 10 }, (_, i) => (
-                        <MovieCardSkeleton key={i} />
+                        <MediaCardSkeleton key={i} />
                     ))}
                 </div>
             }
         >
             <div className={s.grid}>
-                {movies.map((movie) => (
-                    <MovieCard key={movie.id} {...movie} />
+                {cards.map((card) => (
+                    <MediaCard key={card.id} {...card} />
                 ))}
             </div>
         </DataWrapper>

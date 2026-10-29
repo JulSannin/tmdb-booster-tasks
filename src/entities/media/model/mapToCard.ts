@@ -33,5 +33,8 @@ export function mapTvShows(
             title: s.name,
             voteAverage: s.vote_average,
             posterUrl: posterUrl(s.poster_path),
+            // id сериала из другой таблицы TMDB, чем id фильма: ссылка на
+            // /movie/:id открыла бы чужой фильм
+            to: `/tv/${s.id}`,
         }));
 }

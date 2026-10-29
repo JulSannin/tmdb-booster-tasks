@@ -1,0 +1,62 @@
+.card {
+    --title-line-height: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 var(--card-width);
+    scroll-snap-align: start;
+    overflow: hidden;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.poster {
+    position: relative;
+    display: block;
+}
+
+.poster img {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+}
+
+.rating {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.ratingGood {
+    background: #21d07a;
+}
+
+.ratingOk {
+    background: #d2d531;
+}
+
+.ratingLow {
+    background: #db2360;
+}
+
+.footer {
+    padding: 10px 12px 12px;
+}
+
+.title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: var(--title-line-height);
+    height: calc(2 * var(--title-line-height));
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

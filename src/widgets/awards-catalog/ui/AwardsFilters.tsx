@@ -6,7 +6,7 @@ import {
     Button,
     TextField,
 } from '@mui/material';
-import { SortSelect } from '@/features/sort-movies';
+import { SortSelect } from '@/features/sort-select';
 import {
     SORT_OPTIONS,
     isSameQuery,
