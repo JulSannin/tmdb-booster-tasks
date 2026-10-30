@@ -25,23 +25,6 @@
     position: absolute;
     top: 8px;
     right: 8px;
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-}
-
-.ratingGood {
-    background: #21d07a;
-}
-
-.ratingOk {
-    background: #d2d531;
-}
-
-.ratingLow {
-    background: #db2360;
 }
 
 .footer {

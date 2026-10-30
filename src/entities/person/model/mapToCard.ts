@@ -23,6 +23,47 @@ function getInfo(person: PersonResult) {
         : (person.known_for_department ?? '');
 }
 
+type CastMember = {
+    id?: number;
+    name?: string;
+    // у актёров без фото приходит null
+    profile_path?: string | null;
+    character?: string;
+};
+
+// Актёры из /credits: в подписи под именем стоит роль. Список приходит
+// отсортированным по порядку в титрах. Если актёр сыграл несколько ролей, он
+// встречается в нём несколько раз — оставляем первую, главную: карточки
+// различаются по id человека
+export function mapCast(cast: CastMember[]) {
+    const seen = new Set<number>();
+    const cards: {
+        id: number;
+        name: string;
+        photoUrl: string;
+        info: string;
+    }[] = [];
+
+    for (const member of cast) {
+        if (
+            member.id === undefined ||
+            member.name === undefined ||
+            seen.has(member.id)
+        ) {
+            continue;
+        }
+        seen.add(member.id);
+        cards.push({
+            id: member.id,
+            name: member.name,
+            photoUrl: profileUrl(member.profile_path),
+            info: member.character ?? '',
+        });
+    }
+
+    return cards;
+}
+
 export function mapPersons(results: PersonResult[]) {
     return results
         .filter(

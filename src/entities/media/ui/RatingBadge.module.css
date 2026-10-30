@@ -1,0 +1,20 @@
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.good {
+    background: #21d07a;
+}
+
+.ok {
+    background: #d2d531;
+}
+
+.low {
+    background: #db2360;
+}

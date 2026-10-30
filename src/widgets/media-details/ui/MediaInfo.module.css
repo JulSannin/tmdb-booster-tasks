@@ -1,0 +1,80 @@
+.info {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+/* Постер заметно крупнее карточек: в каруселях они по 160px, в сетке «Похожих»
+   около 240px (рубрика 9.1) */
+.posterBox {
+    flex: 0 0 360px;
+    width: 360px;
+}
+
+.poster {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.title {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    color: color-mix(in srgb, var(--surface-text) 70%, transparent);
+}
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.genre {
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--surface-text) 8%, transparent);
+    font-size: 14px;
+}
+
+.overview {
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+    .info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* В одну колонку постер во всю ширину, но не больше 420px: так он
+       крупнее карточки и на планшете, где «Похожие» идут по две в ряд */
+    .posterBox {
+        flex-basis: auto;
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .text {
+        width: 100%;
+    }
+}

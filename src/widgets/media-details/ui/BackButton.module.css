@@ -1,0 +1,20 @@
+.back {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid color-mix(in srgb, var(--surface-text) 30%, transparent);
+    border-radius: 4px;
+    color: var(--surface-text);
+    font-weight: 600;
+}
+
+.back:hover {
+    background: color-mix(in srgb, var(--surface-text) 8%, transparent);
+}
+
+.back:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}

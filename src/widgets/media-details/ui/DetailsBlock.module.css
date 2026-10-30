@@ -1,0 +1,10 @@
+.title {
+    margin: 0 0 16px;
+}
+
+.message {
+    margin: 0;
+    padding: 24px;
+    text-align: center;
+    color: color-mix(in srgb, var(--surface-text) 60%, transparent);
+}

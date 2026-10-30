@@ -5,6 +5,8 @@ import { TMDB_IMAGE_URL } from '@/shared/config';
 // браузер ждал таймаут и сыпал ошибки в консоль
 const NO_POSTER_URL = '/no-poster.svg';
 
-export function posterUrl(path?: string) {
-    return path ? `${TMDB_IMAGE_URL}/w500${path}` : NO_POSTER_URL;
+// Карточкам хватает w500. Постеру на странице деталей, который показывается
+// крупно, нужен w780: иначе на экранах с плотностью 2x он выглядит мыльным
+export function posterUrl(path?: string, size: 'w500' | 'w780' = 'w500') {
+    return path ? `${TMDB_IMAGE_URL}/${size}${path}` : NO_POSTER_URL;
 }

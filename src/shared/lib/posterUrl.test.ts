@@ -7,6 +7,12 @@ describe('posterUrl', () => {
         expect(posterUrl('/abc.jpg')).toBe(`${TMDB_IMAGE_URL}/w500/abc.jpg`);
     });
 
+    it('по просьбе отдаёт постер крупнее', () => {
+        expect(posterUrl('/abc.jpg', 'w780')).toBe(
+            `${TMDB_IMAGE_URL}/w780/abc.jpg`
+        );
+    });
+
     it.each([undefined, ''])('для %j отдаёт локальную заглушку', (path) => {
         expect(posterUrl(path)).toBe('/no-poster.svg');
     });

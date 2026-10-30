@@ -15,12 +15,17 @@ function createTestStore() {
 }
 
 // Рисует компонент в тех же обёртках, что и приложение: Redux-стор с RTK Query
-// и роутер. route — адрес, с которого начинается тест. Роутер отдаётся наружу,
-// чтобы после действий пользователя можно было проверить адрес:
-// router.state.location.search
-export function renderWithProviders(ui: ReactElement, { route = '/' } = {}) {
+// и роутер. route — адрес, с которого начинается тест. path — шаблон маршрута,
+// под который рисуется компонент: по умолчанию '*' (подходит любой адрес), а
+// компоненту, который читает useParams, нужен настоящий шаблон ('/movie/:id').
+// Роутер отдаётся наружу, чтобы после действий пользователя можно было
+// проверить адрес: router.state.location.search
+export function renderWithProviders(
+    ui: ReactElement,
+    { route = '/', path = '*' } = {}
+) {
     const store = createTestStore();
-    const router = createMemoryRouter([{ path: '*', element: ui }], {
+    const router = createMemoryRouter([{ path, element: ui }], {
         initialEntries: [route],
     });
 

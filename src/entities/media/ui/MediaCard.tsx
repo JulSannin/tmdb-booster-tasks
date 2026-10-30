@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router';
+import { RatingBadge } from './RatingBadge';
 import s from './MediaCard.module.css';
 
 export type MediaCardProps = {
@@ -13,13 +14,6 @@ export type MediaCardProps = {
     to?: string;
 };
 
-// Цвет рейтинга по диапазону — тот же принцип, что у TMDB на сайте
-function ratingClass(vote: number) {
-    if (vote >= 7) return s.ratingGood;
-    if (vote >= 5) return s.ratingOk;
-    return s.ratingLow;
-}
-
 export function MediaCard({
     id,
     title,
@@ -32,9 +26,7 @@ export function MediaCard({
             <NavLink to={to ?? `/movie/${id}`} className={s.poster}>
                 <img src={posterUrl} alt={title} />
                 {voteAverage !== undefined && (
-                    <span className={`${s.rating} ${ratingClass(voteAverage)}`}>
-                        {voteAverage.toFixed(1)}
-                    </span>
+                    <RatingBadge value={voteAverage} className={s.rating} />
                 )}
             </NavLink>
             <div className={s.footer}>
