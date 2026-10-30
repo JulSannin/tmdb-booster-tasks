@@ -1,0 +1,86 @@
+.info {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+}
+
+/* Фото у TMDB высотой 632px при соотношении 2:3: на 300px шириной оно выходит
+   около 450px в высоту и остаётся резким */
+.photoBox {
+    flex: 0 0 300px;
+    width: 300px;
+}
+
+.photo {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+}
+
+.text {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.name {
+    margin: 0;
+    font-size: 32px;
+    line-height: 1.2;
+}
+
+.facts {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+}
+
+.fact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 8px;
+}
+
+.label {
+    color: color-mix(in srgb, var(--surface-text) 60%, transparent);
+}
+
+.label::after {
+    content: ':';
+}
+
+.value {
+    margin: 0;
+}
+
+/* Абзацы в биографии разделены переводами строк: pre-line их сохраняет и при
+   этом схлопывает лишние пробелы */
+.biography {
+    margin: 0;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+@media (max-width: 767px) {
+    .info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* В одну колонку фото во всю ширину, но не больше 360px */
+    .photoBox {
+        flex-basis: auto;
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .text {
+        width: 100%;
+    }
+}

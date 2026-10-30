@@ -33,6 +33,7 @@ describe('карта адресов', () => {
         ['/', 'routes/main.ts'],
         ['/search', 'routes/search.ts'],
         ['/movie/603', 'routes/movie-details.ts'],
+        ['/person/287', 'routes/person-details.ts'],
         ['/movies/popular', 'routes/movies-popular.ts'],
         // статичные сегменты выигрывают у динамического :id
         ['/tv/popular', 'routes/tv-popular.ts'],
@@ -49,12 +50,14 @@ describe('карта адресов', () => {
         // у раздела без страницы и у деталей без id адреса нет
         '/movies',
         '/movie',
+        '/person',
         '/tv',
         '/persons',
         '/awards',
         '/movies/nope',
         // лишний сегмент после настоящего адреса
         '/movie/603/cast',
+        '/person/287/credits',
         '/tv/1399/seasons',
         '/search/extra',
     ])('несуществующий адрес %s открывает 404', (pathname) => {

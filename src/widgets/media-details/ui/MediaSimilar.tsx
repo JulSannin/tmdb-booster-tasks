@@ -1,10 +1,10 @@
 import { MediaGrid, mapMovies, mapTvShows } from '@/entities/media';
+import { DetailsBlock, DetailsMessage } from '@/shared/ui/DetailsBlock';
 import {
     useGet3MovieByMovieIdSimilarQuery,
     useGet3TvBySeriesIdSimilarQuery,
 } from '../api/api';
 import type { BlockProps } from '../model/mediaType';
-import { DetailsBlock, DetailsMessage } from './DetailsBlock';
 
 // Сколько карточек показываем. TMDB отдаёт 20, нужно не меньше шести; десять —
 // два полных ряда сетки в пять колонок, столько же скелетонов рисует MediaGrid

@@ -14,10 +14,11 @@ export default [
 
     route('search', 'routes/search.ts'),
 
-    // Страницы деталей. Адрес /movie/:id (в единственном числе) не пересекается
-    // с /movies/..., а в /tv статичные сегменты (popular, top-rated, ...)
-    // React Router ставит выше динамического :id
+    // Страницы деталей. Адреса /movie/:id и /person/:id (в единственном числе)
+    // не пересекаются с /movies/... и /persons/..., а в /tv статичные сегменты
+    // (popular, top-rated, ...) React Router ставит выше динамического :id
     route('movie/:id', 'routes/movie-details.ts'),
+    route('person/:id', 'routes/person-details.ts'),
 
     // prefix('movies', [...]) — все пути внутри получают префикс /movies,
     // то есть route('popular', ...) станет доступен по /movies/popular

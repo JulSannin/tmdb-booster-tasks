@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { parseMediaId } from './parseMediaId';
+import { parseId } from './parseId';
 
-describe('parseMediaId', () => {
+describe('parseId', () => {
     it('читает положительное целое', () => {
-        expect(parseMediaId('603')).toBe(603);
+        expect(parseId('603')).toBe(603);
     });
 
     it.each([
@@ -18,6 +18,6 @@ describe('parseMediaId', () => {
         ['с пробелом', ' 5'],
         ['больше безопасного целого', '99999999999999999999'],
     ])('%s -> null', (_name, value) => {
-        expect(parseMediaId(value)).toBeNull();
+        expect(parseId(value)).toBeNull();
     });
 });

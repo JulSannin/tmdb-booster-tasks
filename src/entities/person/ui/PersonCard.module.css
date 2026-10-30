@@ -9,6 +9,10 @@
     box-shadow: var(--card-shadow);
 }
 
+.photoLink {
+    display: block;
+}
+
 .photo {
     width: 100%;
     aspect-ratio: 2 / 3;

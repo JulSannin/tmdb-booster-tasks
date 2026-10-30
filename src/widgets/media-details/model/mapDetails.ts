@@ -1,4 +1,4 @@
-import { posterUrl } from '@/shared/lib';
+import { pluralize, posterUrl } from '@/shared/lib';
 
 // Всё, что показывает блок с информацией. И фильм, и сериал приводятся к этому
 // виду, поэтому сам блок про тип не знает
@@ -30,15 +30,6 @@ export function formatRuntime(minutes?: number | null) {
 
     if (!hours) return `${rest} мин`;
     return rest ? `${hours} ч ${rest} мин` : `${hours} ч`;
-}
-
-const pluralRules = new Intl.PluralRules('ru');
-
-// 1 сезон, 2 сезона, 5 сезонов. forms — слово для «один», «несколько», «много»
-function pluralize(count: number, [one, few, many]: [string, string, string]) {
-    const form = pluralRules.select(count);
-
-    return `${count} ${form === 'one' ? one : form === 'few' ? few : many}`;
 }
 
 // 8, 73 -> "8 сезонов · 73 серии". У анонсированных сериалов TMDB присылает

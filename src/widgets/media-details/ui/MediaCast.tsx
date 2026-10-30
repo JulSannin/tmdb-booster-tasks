@@ -1,11 +1,11 @@
 import { PersonCard, PersonCardSkeleton, mapCast } from '@/entities/person';
 import { DataWrapper } from '@/shared/ui/DataWrapper';
+import { DetailsBlock, DetailsMessage } from '@/shared/ui/DetailsBlock';
 import {
     useGet3MovieByMovieIdCreditsQuery,
     useGet3TvBySeriesIdCreditsQuery,
 } from '../api/api';
 import type { BlockProps } from '../model/mediaType';
-import { DetailsBlock, DetailsMessage } from './DetailsBlock';
 import s from './MediaCast.module.css';
 
 // Сколько актёров показываем. По нему же рисуется скелетон

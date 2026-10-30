@@ -1,6 +1,6 @@
-// id из адреса пишет пользователь: /movie/abc, /movie/-5 и /movie/1e3 нельзя
+// id из адреса пишет пользователь: /movie/abc, /movie/-5 и /person/1e3 нельзя
 // отправлять в TMDB. Возвращает положительное целое или null
-export function parseMediaId(value?: string) {
+export function parseId(value?: string) {
     if (!value || !/^\d+$/.test(value)) return null;
 
     const id = Number(value);

@@ -1,8 +1,8 @@
 import { useParams } from 'react-router';
+import { parseId } from '@/shared/lib';
+import { BackButton } from '@/shared/ui/BackButton';
 import { NotFound } from '@/shared/ui/NotFound';
-import { parseMediaId } from '../model/parseMediaId';
 import type { MediaType } from '../model/mediaType';
-import { BackButton } from './BackButton';
 import { MediaCast } from './MediaCast';
 import { MediaInfo } from './MediaInfo';
 import { MediaSimilar } from './MediaSimilar';
@@ -13,7 +13,7 @@ import s from './MediaDetailsWidget.module.css';
 // пришли, и ошибка одного блока не прячет остальные. id берётся из адреса
 // (/movie/:id, /tv/:id)
 export function MediaDetailsWidget({ mediaType }: { mediaType: MediaType }) {
-    const id = parseMediaId(useParams().id);
+    const id = parseId(useParams().id);
 
     // /movie/abc: такой страницы нет, как и у любого другого неизвестного
     // адреса. Показываем тот же экран 404 и в сеть не ходим
