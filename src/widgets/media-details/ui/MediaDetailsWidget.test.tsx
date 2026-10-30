@@ -316,15 +316,43 @@ describe('MediaDetailsWidget', () => {
         expect(keys.every((key) => key.startsWith('get3Tv'))).toBe(true);
     });
 
-    it('некорректный id в адресе: сообщение вместо блоков, в сеть не ходит', () => {
-        mockMedia(matrixCatalog);
-        const { store } = renderMovie('/movie/abc');
+    // 603abc интереснее всего: TMDB на /movie/603abc сам отвечает 200 и отдаёт
+    // «Матрицу», поэтому отсечь такой адрес может только сама страница
+    it.each(['abc', '603abc'])(
+        'некорректный id «%s» в адресе: экран 404 вместо блоков, в сеть не ходит',
+        (id) => {
+            mockMedia(matrixCatalog);
+            const { store } = renderMovie(`/movie/${id}`);
 
-        expect(screen.getByText('Некорректный адрес страницы')).toBeVisible();
-        expect(backButton()).toBeVisible();
+            expect(
+                screen.getByRole('heading', {
+                    level: 1,
+                    name: 'Страница не найдена',
+                })
+            ).toBeVisible();
+            expect(
+                screen.getByRole('link', { name: 'На главную' })
+            ).toHaveAttribute('href', '/');
+            expect(
+                screen.queryByRole('heading', { name: 'В главных ролях' })
+            ).not.toBeInTheDocument();
+            expect(
+                screen.queryByRole('button', { name: 'Назад' })
+            ).not.toBeInTheDocument();
+            expect(store.getState().baseApi.queries).toEqual({});
+        }
+    );
+
+    it('у сериала с некорректным id тоже экран 404', () => {
+        mockMedia(showCatalog, 'tv');
+        const { store } = renderShow('/tv/abc');
+
         expect(
-            screen.queryByRole('heading', { name: 'В главных ролях' })
-        ).not.toBeInTheDocument();
+            screen.getByRole('heading', {
+                level: 1,
+                name: 'Страница не найдена',
+            })
+        ).toBeVisible();
         expect(store.getState().baseApi.queries).toEqual({});
     });
 

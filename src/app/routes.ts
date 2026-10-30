@@ -42,4 +42,10 @@ export default [
         route('popular', 'routes/awards-popular.ts'),
         route('upcoming', 'routes/awards-upcoming.ts'),
     ]),
+
+    // Страница 404 для всех адресов, которых нет выше. Маршрут со звёздочкой в
+    // React Router имеет самый низкий приоритет, поэтому настоящие страницы
+    // выигрывают, где бы он ни стоял. Рисуется внутри Root: шапка и подвал на
+    // месте. В меню (shared/model/menu.ts) её добавлять не нужно
+    route('*', 'routes/not-found.ts'),
 ] satisfies RouteConfig;

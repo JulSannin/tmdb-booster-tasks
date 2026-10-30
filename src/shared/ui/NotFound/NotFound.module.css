@@ -1,0 +1,49 @@
+.notFound {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    min-height: 60vh;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+.code {
+    margin: 0;
+    color: var(--secondary-color);
+    font-size: clamp(96px, 22vw, 200px);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.title {
+    margin: 0;
+    font-size: 28px;
+}
+
+.text {
+    margin: 0;
+    max-width: 480px;
+    color: color-mix(in srgb, var(--surface-text) 70%, transparent);
+}
+
+/* Текст тёмный в обеих темах: белый на --secondary-color в тёмной теме
+   давал бы контраст около 2:1 */
+.home {
+    margin-top: 8px;
+    padding: 10px 24px;
+    border-radius: 4px;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.home:hover {
+    filter: brightness(1.1);
+}
+
+.home:focus-visible {
+    outline: 2px solid var(--secondary-color);
+    outline-offset: 2px;
+}

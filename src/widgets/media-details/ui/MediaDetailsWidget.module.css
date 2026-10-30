@@ -12,9 +12,3 @@
     flex-direction: column;
     gap: 40px;
 }
-
-.message {
-    padding: 24px;
-    text-align: center;
-    color: var(--surface-text);
-}
